@@ -1,8 +1,8 @@
 def welcome_intro():
     '''Welcome message and introduction'''
 
-    print('\nWelcome to your Mortgage Advisor!\n')
-    print('========='.center(50))
+    print('Welcome to your Mortgage Advisor!\n'.center(50))
+    print('=========\n'.center(50))
     print('Are you looking to buy a house in Ireland?')
     print('And you are a First Time Buyer (FTB)')
     print('or a Second & Subsequent Buyer (SSB)?')
