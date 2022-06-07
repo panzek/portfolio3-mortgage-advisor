@@ -1,5 +1,5 @@
+'''Welcome message and introduction'''
 def welcome_intro():
-    '''Welcome message and introduction'''
 
     print('Welcome to your Mortgage Advisor!\n'.center(50))
     print('=========\n'.center(50))
@@ -9,3 +9,4 @@ def welcome_intro():
     print('And wants to know the estimate of your monthly')
     print('repayments when you borrow to get a mortgage?\n')
     print('First, introduce yourself.\n')
+    
