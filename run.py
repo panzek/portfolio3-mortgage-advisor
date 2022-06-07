@@ -4,6 +4,7 @@ obtain credentials using service account private key file
 """
 import gspread
 from google.oauth2.service_account import Credentials
+import welcome
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -20,4 +21,5 @@ first_time_buyer = SHEET.worksheet('first_time_buyer')
 
 data = first_time_buyer.get_all_values()
 
+welcome.welcome_intro()
 print(data)
