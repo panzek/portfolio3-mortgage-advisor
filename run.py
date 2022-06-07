@@ -1,3 +1,7 @@
+"""
+specify scopes for access
+obtain credentials using service account private key file
+"""
 import gspread
 from google.oauth2.service_account import Credentials
 
