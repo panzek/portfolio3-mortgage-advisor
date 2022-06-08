@@ -9,3 +9,8 @@ def user_name():
 
     new_user = input('Please enter your username: ')
     print(f'Thank you and welcome, {new_user}')
+
+def check_username():
+    """check username input to handle errors"""
+
+    print('checking error in username... ')
