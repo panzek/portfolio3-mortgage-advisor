@@ -25,9 +25,8 @@ def check_username(new_user):
                 f'Characters between 4 & 10 required, you entered {len(new_user)}'
             )
 
-    except ValueError:
-        print('No username entered, please try again')
-        print('invalid data: {new_user}, please try again')
+    except ValueError as error_msg:
+        print(f'invalid data: {error_msg}, please try again')
         return False
 
     return True
