@@ -6,6 +6,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import welcome
 import user
+import menu
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -20,3 +21,4 @@ SHEET = GSPREAD_CLIENTS.open('mortgage_advisor')
 
 welcome.welcome_intro()
 user.user_name()
+menu.menu_list()
