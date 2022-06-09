@@ -20,13 +20,16 @@ def check_username(new_user):
     """check username input to handle errors"""
 
     try:
+        if not new_user:
+            raise ValueError('You must enter a username')
         if len(new_user) < 4 or len(new_user) > 10:
             raise ValueError(
                 f'Characters between 4 & 10 required, you entered {len(new_user)}'
             )
 
     except ValueError:
-        print('invalid data: , please try again')
+        print('No username entered, please try again')
+        print('invalid data: {new_user}, please try again')
         return False
 
     return True
