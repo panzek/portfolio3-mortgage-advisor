@@ -8,13 +8,13 @@ def user_name():
         print('Characters A-Z, a-z, 0-9 and spaces are permitted')
         print('Leading and trailing whitespaces will be removed\n')
 
-        new_user = input('Please enter your username: ')
+        new_user = input('Please enter your username: \n')
 
         if check_username(new_user):
             print(f'{chr(10)}Thank you and welcome, {new_user}')
             break
 
-    return new_user
+    return new_user.strip()
 
 def check_username(new_user):
     """check username input to handle errors"""
@@ -22,13 +22,17 @@ def check_username(new_user):
     try:
         if not new_user:
             raise ValueError('You must enter a username')
-        if len(new_user) < 4 or len(new_user) > 10:
+        if len(new_user) < 4:
             raise ValueError(
-                f'Characters between 4 & 10 required, you entered {len(new_user)}'
+                'Username must have at least 4 characters'
+            )
+        if len(new_user) > 10:
+            raise ValueError(
+                'Username must not exceed 10 characters'
             )
 
     except ValueError as error_msg:
-        print(f'Error: {error_msg}, please try again{chr(10)}')
+        print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
         return False
 
     return True
