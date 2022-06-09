@@ -14,8 +14,6 @@ def user_name():
             print(f'Thank you and welcome, {new_user}')
             break
 
-        return user_name
-
 def check_username(new_user):
     """check username input to handle errors"""
 
