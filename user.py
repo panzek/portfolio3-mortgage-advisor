@@ -14,6 +14,8 @@ def user_name():
             print(f'{chr(10)}Thank you and welcome, {new_user}')
             break
 
+    return new_user
+
 def check_username(new_user):
     """check username input to handle errors"""
 
@@ -26,7 +28,7 @@ def check_username(new_user):
             )
 
     except ValueError as error_msg:
-        print(f'invalid data: {error_msg}, please try again{chr(10)}')
+        print(f'Error: {error_msg}, please try again{chr(10)}')
         return False
 
     return True
