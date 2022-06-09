@@ -3,14 +3,30 @@
 def user_name():
     """username function to get data from user"""
 
-    print('Username must be between 4 and 10 characters')
-    print('Characters A-Z, a-z, 0-9 and spaces are permitted')
-    print('Leading and trailing whitespaces will be removed\n')
+    while True:
+        print('Username must be between 4 and 10 characters')
+        print('Characters A-Z, a-z, 0-9 and spaces are permitted')
+        print('Leading and trailing whitespaces will be removed\n')
 
-    new_user = input('Please enter your username: ')
-    print(f'Thank you and welcome, {new_user}')
+        new_user = input('Please enter your username: ')
 
-def check_username():
+        if check_username(new_user):
+            print(f'Thank you and welcome, {new_user}')
+            break
+
+        return user_name
+
+def check_username(new_user):
     """check username input to handle errors"""
 
-    print('checking error in username... ')
+    try:
+        if len(new_user) < 4 or len(new_user) > 10:
+            raise ValueError(
+                f'Characters between 4 & 10 required, you entered {len(new_user)}'
+            )
+
+    except ValueError:
+        print('invalid data: , please try again')
+        return False
+
+    return True
