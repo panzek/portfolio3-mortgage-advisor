@@ -20,7 +20,6 @@ def calculate_monthly_repayment(loan_amount, loan_term):
     interest = (rate_of_interest*loan_amount*loan_term)/100
     total_repayment_amount = interest + loan_amount
 
-    # euro = chr(8364)
     monthly_repayment_amount = total_repayment_amount/(loan_term*12)
 
     print(f'{chr(10)}Scheduled mortgage repayment: {euro}{monthly_repayment_amount:.2f}')

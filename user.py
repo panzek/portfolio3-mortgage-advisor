@@ -50,22 +50,3 @@ def check_username(new_user):
         return False
 
     return True
-
-
-# def update_user(my_user):
-#     """ update spreadsheet with username data"""
-
-#     print('Getting all values from spreadsheet...\n')
-#     first_time_buyer = SHEET.worksheet('first_time_buyer')
-#     data = first_time_buyer.get_all_values()
-#     pprint(data)
-
-#     print('updating spreadsheet with username...\n')
-#     first_time_buyer.update_cell(3,1, my_user)
-
-#     return first_time_buyer
-
-# def main():
-#     my_user = user_name()
-#     update_user(my_user)
-# main()

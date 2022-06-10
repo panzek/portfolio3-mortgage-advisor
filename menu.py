@@ -63,6 +63,8 @@ def check_menu_list(list_option):
         print('2. Second & Subsequent Buyer (SSB)\n')
 
         int(input('Please enter your option: \n'))
+        # mortgage_type = int(input('Please enter your option: \n'))
+        # if list_option.mortgage_type:
 
     if list_option == 4:
         print('\nDelete existing mortgage enquiry results')
@@ -70,9 +72,13 @@ def check_menu_list(list_option):
         input('\nPress any key to delete \n')
 
     if list_option == 5:
-        print('\nExit the application')
+        print('Thank you for looking it')
+        quit()
+        # input('\nPress any key to Exit \n')
+        # exit()
+        # sys.exit('Thank you for looking it')
 
-        input('\nPress any key to Exit \n')
+        # input('\nPress any key to Exit \n')
 
-menu = menu_list()
-print(menu)
+# menu = menu_list()
+# print(menu)

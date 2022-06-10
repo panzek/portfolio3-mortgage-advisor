@@ -5,7 +5,7 @@ obtain credentials using service account private key file
 import gspread
 from google.oauth2.service_account import Credentials
 import welcome
-# import menu
+import menu
 from user import user_name
 from repayment import get_loan_data
 
@@ -26,14 +26,16 @@ def add_row_to_sheet(row):
     """ add row to worksheets"""
     first_time_buyer_sheet.append_row(row)
 
-# def main():
-#     """ top level function to hold all other modules"""
+def main():
+    """ 
+    top level module to run  all program functions 
+    """
 
 welcome.welcome_intro()
-# menu.menu_list()
 user = user_name()
+menu.menu_list()
 loan_data = get_loan_data()
 data = [ user, *loan_data]
 add_row_to_sheet(data)
 
-# main()
+main()
