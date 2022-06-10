@@ -1,16 +1,24 @@
-""" calculate repayment """
+""" 
+get data from user and 
+calculate monthly repayment 
+"""
 
-def first_time_buyer(price,amount,term):
-    """username function to get data from user"""
+def get_loan_data():
+    """ get data from user """
 
-    while True:
-        interest = (price*amount*term)/100
-        print(interest)
+    price = float(input('Please enter property price: '))
+    loan_amount = float(input('Please enter loan amount: '))
+    loan_term = float(input('Please enter term loan: '))
 
-        price = float(input('Please enter property price: '))
-        amount = float(input('Please enter loan amount: '))
-        term = float(input('Please enter term loan: '))
+    return [price, loan_amount, loan_term]
+    
+def calculate_monthly_repayment(loan_amount, loan_term):
+    """ calculate monthly repayment """
 
-    return interest
+    rate_of_interest = 4.5
+    interest = (rate_of_interest*loan_amount*loan_term)/100
+    total_repayment_amount = interest + loan_amount
 
-first_time_buyer()
+    return total_repayment_amount/(loan_term*12)
+
+# get_loan_data()
