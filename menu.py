@@ -14,6 +14,8 @@ def menu_list():
         list_option = int(input('Please enter your option: 1,2,3,4, or 5: \n'))
         check_menu_list(list_option)
 
+        return menu_list
+
 def check_menu_list(list_option):
     """ handle user inputs and errors"""
 
@@ -71,3 +73,6 @@ def check_menu_list(list_option):
         print('\nExit the application')
 
         input('\nPress any key to Exit \n')
+
+menu = menu_list()
+print(menu)
