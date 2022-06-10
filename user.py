@@ -1,7 +1,7 @@
 """create user name"""
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+# from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -51,21 +51,21 @@ def check_username(new_user):
 
     return True
 
-def update_user(my_user):
-    """ update spreadsheet with username data"""
 
-    print('Getting all values from spreadsheet...\n')
-    first_time_buyer = SHEET.worksheet('first_time_buyer')
-    data = first_time_buyer.get_all_values()
-    pprint(data)
+# def update_user(my_user):
+#     """ update spreadsheet with username data"""
 
-    print('updating spreadsheet with username...\n')
-    first_time_buyer.update_cell(3,1, my_user)
+#     print('Getting all values from spreadsheet...\n')
+#     first_time_buyer = SHEET.worksheet('first_time_buyer')
+#     data = first_time_buyer.get_all_values()
+#     pprint(data)
 
-    return first_time_buyer
+#     print('updating spreadsheet with username...\n')
+#     first_time_buyer.update_cell(3,1, my_user)
 
-def main():
-    my_user = user_name()
-    update_user(my_user)
-main()
+#     return first_time_buyer
 
+# def main():
+#     my_user = user_name()
+#     update_user(my_user)
+# main()
