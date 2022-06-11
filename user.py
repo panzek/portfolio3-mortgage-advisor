@@ -1,6 +1,7 @@
 """create user name"""
 import gspread
 from google.oauth2.service_account import Credentials
+import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -34,8 +35,8 @@ def user_name():
 
 def validate_username(username):
     """
-    This will check if the username input 
-    data is valid or not, and will raise exception 
+    This will check if the username input
+    data is valid or not, and will raise exception
     to handle any errors
     """
 
@@ -54,7 +55,7 @@ def validate_username(username):
     except ValueError as error_msg:
         print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
         return False
-    
+
     return True
 
 def check_username(username):
@@ -63,13 +64,31 @@ def check_username(username):
     data. If there is no such username create a username
     """
 
-    print(f'{chr(10)}Checking if {username} exist...')
+    print(f'{chr(10)}Checking if {username} exist...{chr(10)}')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
+
+    if existing_user: 
+        euro = chr(8364)
+        property_value = first_time_buyer_sheet.row_values(existing_user.row)[-4]
+        loan_size = first_time_buyer_sheet.row_values(existing_user.row)[-3]
+        loan_term = first_time_buyer_sheet.row_values(existing_user.row)[-2]
+        monthly_repayment = first_time_buyer_sheet.row_values(existing_user.row)[-1]
+        print('RESULTS'.center(25))
+        print('=========='.center(25))
+        print(f'1. Property Value: {euro}{property_value}')
+        print(f'2. Loan Size: {euro}{loan_size}')
+        print(f'3. Loan Term: {loan_term}yrs')
+        print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
+        print('==========\n'.center(25))
 
     if existing_user:
         print(f'{chr(10)}Welcome back, {username}')
+        get_user_data()
     else:
-         validate_username(username)
-         print(f'{chr(10)}Thank you and welcome, {username}')
+        validate_username(username)
+        print(f'{chr(10)}Thank you and welcome, {username}')
 
-# user_name()
+def get_user_data():
+    get_data = first_time_buyer_sheet.get_all_values()
+    print(get_data)
+user_name()

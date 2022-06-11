@@ -27,8 +27,8 @@ def add_row_to_sheet(row):
     first_time_buyer_sheet.append_row(row)
 
 def main():
-    """ 
-    top level module to run  all program functions 
+    """
+    top level module to run  all program functions
     """
 
 welcome.welcome_intro()
