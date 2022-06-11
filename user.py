@@ -24,13 +24,13 @@ def user_name():
 
         new_user = input('Please enter your username: \n').lower()
 
-        if check_username(new_user):
+        if validate_username(new_user):
             print(f'{chr(10)}Thank you and welcome, {new_user}')
             break
 
     return new_user.strip()
 
-def check_username(new_user):
+def validate_username(new_user):
     """check username input to handle errors"""
 
     try:
