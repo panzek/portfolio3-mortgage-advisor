@@ -1,4 +1,5 @@
 """ Options menu """
+import sys
 
 def menu_list():
     """ List of options """
@@ -63,8 +64,6 @@ def check_menu_list(list_option):
         print('2. Second & Subsequent Buyer (SSB)\n')
 
         int(input('Please enter your option: \n'))
-        # mortgage_type = int(input('Please enter your option: \n'))
-        # if list_option.mortgage_type:
 
     if list_option == 4:
         print('\nDelete existing mortgage enquiry results')
@@ -72,13 +71,5 @@ def check_menu_list(list_option):
         input('\nPress any key to delete \n')
 
     if list_option == 5:
-        print('Thank you for looking it')
-        quit()
-        # input('\nPress any key to Exit \n')
-        # exit()
-        # sys.exit('Thank you for looking it')
+        sys.exit("You exit the program, thanks for looking in!")
 
-        # input('\nPress any key to Exit \n')
-
-# menu = menu_list()
-# print(menu)
