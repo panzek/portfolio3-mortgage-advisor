@@ -1,6 +1,7 @@
 '''Handle import and banner'''
 
 import pyfiglet
+from getch import getch, pause
 
 def welcome_intro():
 
@@ -12,7 +13,7 @@ def welcome_intro():
 
     print('Welcome to Mortgage Advisor Ireland!'.center(90))
     print('===================\n'.center(90))
-    input('Please press any key to continue...'.center(90))
+    pause(input('Please press any key to continue...'.center(90)))
 
     print('\nAre you looking to buy a house in Ireland?')
     print('And you want to know the estimate of your monthly')

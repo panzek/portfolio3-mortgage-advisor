@@ -24,7 +24,7 @@ def user_name():
         print('Characters A-Z, a-z, 0-9 and spaces are permitted')
         print('Leading and trailing whitespaces will be removed\n')
 
-        username = input('Please enter your username: ').lower()
+        username = input('Please enter a username: ').lower()
 
         if validate_username(username):
             check_username(username)
@@ -82,13 +82,17 @@ def check_username(username):
         print('==========\n'.center(25))
 
     if existing_user:
-        print(f'{chr(10)}Welcome back, {username}')
+        print(f'{chr(10)}{username} already taken')
+
+        make_choice = input('Are you a returning user?: y/n')
+        # print(f'{chr(10)}Welcome back, {username}')
+        
         get_user_data()
     else:
         validate_username(username)
-        print(f'{chr(10)}Thank you and welcome, {username}')
+        print(f'{chr(10)}Welcome, {username}!')
 
 def get_user_data():
     get_data = first_time_buyer_sheet.get_all_values()
     print(get_data)
-user_name()
+# user_name()
