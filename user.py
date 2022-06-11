@@ -1,7 +1,6 @@
 """create user name"""
 import gspread
 from google.oauth2.service_account import Credentials
-# from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -31,7 +30,11 @@ def user_name():
     return new_user.strip()
 
 def validate_username(new_user):
-    """check username input to handle errors"""
+    """
+    This will check if the username input 
+    data is valid or not, and will raise exception 
+    to handle any errors
+    """
 
     try:
         if not new_user:
@@ -50,3 +53,9 @@ def validate_username(new_user):
         return False
 
     return True
+
+def check_username():
+    """
+    Check if username exist and allow access to existing
+    data. If there is no such username create a username
+    """
