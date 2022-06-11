@@ -5,11 +5,11 @@ def menu_list():
 
     while True:
         print('\nPlease choose one of the following options:')
-        print('\n1. To run an overview of this application')
-        print('2. To run through the instructions')
-        print('3. To run new mortgage enquiry')
-        print('4. To delete existing mortgage enquiry results')
-        print('5. To exit the application\n')
+        print('\n1. Run an overview of this application')
+        print('2. Run through the instructions')
+        print('3. Run mortgage calculator')
+        print('4. Delete existing mortgage calculator results')
+        print('5. Exit the application\n')
 
         list_option = int(input('Please enter your option: 1,2,3,4, or 5: \n'))
         check_menu_list(list_option)
