@@ -30,6 +30,7 @@ def user_name():
         if validate_username(username):
             check_username(username)
             get_user_data(username)
+            delete_user_data()
 
             break
 
@@ -119,4 +120,9 @@ def get_user_data(username):
         print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
         print('==========\n'.center(25))
     return True
-# user_name()
+
+
+def delete_user_data():
+    input('Press any key to delete your existing results...')
+
+user_name()
