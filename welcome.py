@@ -3,12 +3,15 @@
 import pyfiglet
 from getch import getch, pause
 
+
 def welcome_intro():
 
     '''Welcome message and introduction'''
 
     title = 'Mortgage Advisor'
-    banner = pyfiglet.figlet_format(title, font='banner3-D', width=90, justify='center')
+    banner = pyfiglet.figlet_format(
+        title, font='banner3-D', width=90, justify='center'
+        )
     print(banner)
 
     print('Welcome to Mortgage Advisor Ireland!'.center(90))
@@ -19,7 +22,4 @@ def welcome_intro():
     print('And you want to know the estimate of your monthly')
     print('repayments when you borrow to get a mortgage?\n')
 
-   
-
     print('First create a username or Enter existing one.')
-        

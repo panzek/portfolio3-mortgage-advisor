@@ -16,6 +16,7 @@ SHEET = GSPREAD_CLIENTS.open('mortgage_advisor')
 
 first_time_buyer_sheet = SHEET.worksheet('first_time_buyer')
 
+
 def user_name():
     """username function to get data from user"""
 
@@ -28,10 +29,12 @@ def user_name():
 
         if validate_username(username):
             check_username(username)
+            get_user_data(username)
 
             break
 
     return username.strip()
+
 
 def validate_username(username):
     """
@@ -41,6 +44,8 @@ def validate_username(username):
     """
 
     try:
+        # if username:
+        #     raise ValueError(f'{chr(10)}{username} already taken')
         if not username:
             raise ValueError('You must enter a username')
         if len(username) < 4:
@@ -53,10 +58,12 @@ def validate_username(username):
             )
 
     except ValueError as error_msg:
+        # input(f'{error_msg}. Are you a returning user?: y/n')
         print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
         return False
 
     return True
+
 
 def check_username(username):
     """
@@ -67,12 +74,43 @@ def check_username(username):
     print(f'{chr(10)}Checking if {username} exist...{chr(10)}')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
 
-    if existing_user: 
+    if existing_user:
+        print(f'{username} already taken')
+
+        make_choice = input(
+            'Are you a returning user?: y/n '
+            )
+        if make_choice == 'y':
+            print(f'{chr(10)}Welcome back, {username}')
+            input('Press any key to retrieve existing mortgage results...\n')
+        
+        elif make_choice == 'n':
+            input('Enter a different username')
+            return username
+            
+    else:
+        validate_username(username)
+        print(f'{chr(10)}Welcome, {username}!')
+    return True
+
+
+def get_user_data(username):
+    """
+    gets existing data if user is a returning visitor
+    """
+    # get_data = first_time_buyer_sheet.get_all_values()
+    # print(get_data)
+    existing_user = first_time_buyer_sheet.find(username, in_column=1)
+    if existing_user:
         euro = chr(8364)
-        property_value = first_time_buyer_sheet.row_values(existing_user.row)[-4]
+        property_value = first_time_buyer_sheet.row_values(
+            existing_user.row
+            )[-4]
         loan_size = first_time_buyer_sheet.row_values(existing_user.row)[-3]
         loan_term = first_time_buyer_sheet.row_values(existing_user.row)[-2]
-        monthly_repayment = first_time_buyer_sheet.row_values(existing_user.row)[-1]
+        monthly_repayment = first_time_buyer_sheet.row_values(
+            existing_user.row
+            )[-1]
         print('RESULTS'.center(25))
         print('=========='.center(25))
         print(f'1. Property Value: {euro}{property_value}')
@@ -80,19 +118,5 @@ def check_username(username):
         print(f'3. Loan Term: {loan_term}yrs')
         print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
         print('==========\n'.center(25))
-
-    if existing_user:
-        print(f'{chr(10)}{username} already taken')
-
-        make_choice = input('Are you a returning user?: y/n')
-        # print(f'{chr(10)}Welcome back, {username}')
-        
-        get_user_data()
-    else:
-        validate_username(username)
-        print(f'{chr(10)}Welcome, {username}!')
-
-def get_user_data():
-    get_data = first_time_buyer_sheet.get_all_values()
-    print(get_data)
+    return True
 # user_name()

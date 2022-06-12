@@ -3,6 +3,7 @@ import sys
 import gspread
 from google.oauth2.service_account import Credentials
 
+
 def menu_list():
     """ List of options """
 
@@ -18,6 +19,7 @@ def menu_list():
         check_menu_list(list_option)
 
         return menu_list
+
 
 def check_menu_list(list_option):
     """ handle user inputs and errors"""
@@ -41,7 +43,7 @@ def check_menu_list(list_option):
         print('the user monthly repayments.\n')
         input('Press any key to return to main menu... \n')
 
-    if list_option == 2:
+    elif list_option == 2:
         print('\nInstructions')
         print('==================\n')
         print('How to use our mortgage calculator?\n')
@@ -59,16 +61,20 @@ def check_menu_list(list_option):
 
         input('Press any key to return to main menu... \n')
 
-    if list_option == 3:
+    elif list_option == 3:
         print('\nPlease select your mortgage type: 1 or 2')
         print('1. First Time Buyer (FTB)')
         print('2. Second & Subsequent Buyer (SSB)\n')
 
         int(input('Please enter your option: \n'))
 
-    if list_option == 4:
-        existing_result = input('\nGet existing mortgage calculator results: y/n? ').lower()
-        confirm_result = input(f'Press {existing_result} again to confirm: ').lower()
+    elif list_option == 4:
+        existing_result = input(
+            '\nGet existing mortgage calculator results: y/n? '
+            ).lower()
+        confirm_result = input(
+            f'Press {existing_result} again to confirm: '
+            ).lower()
 
         if existing_result == confirm_result:
             print('Hello World!')
@@ -78,5 +84,8 @@ def check_menu_list(list_option):
             input(f'Press {existing_result} again to confirm: ').lower()
             # quit()
 
-    if list_option == 5:
+    elif list_option == 5:
         sys.exit("You exit the program, thanks for looking in!")
+    
+    else:
+        menu_list(list_option)
