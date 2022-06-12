@@ -30,7 +30,7 @@ def user_name():
         if validate_username(username):
             check_username(username)
             get_user_data(username)
-            delete_user_data()
+            new_user()
 
             break
 
@@ -88,11 +88,11 @@ def check_username(username):
         elif make_choice == 'n':
             input('Enter a different username')
             return username
-            
+
     else:
         validate_username(username)
         print(f'{chr(10)}Welcome, {username}!')
-    return True
+    return False
 
 
 def get_user_data(username):
@@ -122,7 +122,11 @@ def get_user_data(username):
     return True
 
 
-def delete_user_data():
-    input('Press any key to delete your existing results...')
+def new_user():
+    """
+    create a new username if user 
+    is not returning visitor
+    """
+    input('Press any key to continue...')
 
-user_name()
+# user_name()
