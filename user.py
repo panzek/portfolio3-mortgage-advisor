@@ -45,8 +45,6 @@ def validate_username(username):
     """
 
     try:
-        # if username:
-        #     raise ValueError(f'{chr(10)}{username} already taken')
         if not username:
             raise ValueError('You must enter a username')
         if len(username) < 4:
@@ -59,7 +57,6 @@ def validate_username(username):
             )
 
     except ValueError as error_msg:
-        # input(f'{error_msg}. Are you a returning user?: y/n')
         print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
         return False
 
@@ -99,8 +96,6 @@ def get_user_data(username):
     """
     gets existing data if user is a returning visitor
     """
-    # get_data = first_time_buyer_sheet.get_all_values()
-    # print(get_data)
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
     if existing_user:
         euro = chr(8364)
