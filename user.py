@@ -82,14 +82,13 @@ def check_username(username):
                 print('Exiting the application...')
                 sys.exit()
            
-            else:
-                print(f'{chr(10)}{username} not found...')
-                print(f'Creating your username...{chr(10)}')
-                validate_username(username)
-                print(f'Welcome, {username}!')
+        else:
+            print(f'{chr(10)}{username} not found...')
+            print(f'Creating your username...{chr(10)}')
+            validate_username(username)
+            print(f'Welcome, {username}!')
 
-                continue
-                # return existing_user
+            return existing_user
 
 
 def get_user_data(username):
