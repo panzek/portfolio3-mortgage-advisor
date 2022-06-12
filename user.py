@@ -1,7 +1,7 @@
 """create user name"""
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
-import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -30,7 +30,6 @@ def user_name():
         if validate_username(username):
             check_username(username)
             get_user_data(username)
-            new_user()
 
             break
 
@@ -69,27 +68,28 @@ def check_username(username):
     data. If there is no such username create a username
     """
 
-    print(f'{chr(10)}Checking if {username} exist...{chr(10)}')
+    print(f'Checking {username} in database...')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
 
-    if existing_user:
-        print(f'{username} already taken')
-
-        make_choice = input(
-            'Are you a returning user?: y/n '
-            )
-        if make_choice == 'y':
+    while True:
+        if existing_user:
             print(f'{chr(10)}Welcome back, {username}')
-            input('Press any key to retrieve existing mortgage results...\n')
-        
-        elif make_choice == 'n':
-            input('Enter a different username')
-            return username
+            check_results = input('Do you want to retrieve existing mortgage results?: y/n\n').lower()
+            if check_results == 'y' or check_results == 'yes':
+                input(f'Press {check_results} again to confirm...\n')
+                return check_results
+            elif check_results == 'n' or check_results == 'no':
+                print('Exiting the application...')
+                sys.exit()
+           
+            else:
+                print(f'{chr(10)}{username} not found...')
+                print(f'Creating your username...{chr(10)}')
+                validate_username(username)
+                print(f'Welcome, {username}!')
 
-    else:
-        validate_username(username)
-        print(f'{chr(10)}Welcome, {username}!')
-    return False
+                continue
+                # return existing_user
 
 
 def get_user_data(username):
@@ -117,11 +117,8 @@ def get_user_data(username):
     return True
 
 
-def new_user():
+def new_user(username):
     """
     create a new username if user 
     is not returning visitor
     """
-    input('Press any key to continue...')
-
-# user_name()

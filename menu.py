@@ -8,7 +8,7 @@ def menu_list():
 
     while True:
         print('\nPlease choose one of the following options:')
-        print('\n1. Run an overview of this application')
+        print('1. Run an overview of this application')
         print('2. Run through the instructions')
         print('3. Run mortgage calculator')
         print('4. Get existing mortgage calculator results')
