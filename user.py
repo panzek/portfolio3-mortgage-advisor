@@ -2,6 +2,7 @@
 import sys
 import gspread
 from google.oauth2.service_account import Credentials
+from welcome import welcome_intro
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -83,6 +84,18 @@ def check_username(username):
             if user_options == 1:
                 print('\nretrieving your mortgage results...\n')
                 break
+
+            if user_options == 2:
+                delete_program = input(
+                    '\nDo you really want to delete previous mortgage results?: y/n\n'
+                    ).lower()
+                if delete_program in ('y', 'yes'):
+                    input(f'{chr(10)}Press {delete_program} again to confirm...')
+                    print(f'{chr(10)}Deleting previous mortgage results...')
+                    first_time_buyer_sheet.delete_row(existing_user.row)
+                    input(f'{chr(10)}Previous mortgage results deleted...')
+
+                    return welcome_intro()
 
             if user_options == 3:
                 quit_program = input(
