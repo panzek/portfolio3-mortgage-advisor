@@ -74,11 +74,15 @@ def check_username(username):
     while True:
         if existing_user:
             print(f'{chr(10)}Welcome back, {username}')
-            check_results = input('Do you want to retrieve existing mortgage results?: y/n\n').lower()
-            if check_results == 'y' or check_results == 'yes':
+            check_results = input(
+                'Do you want to retrieve existing mortgage results?: y/n\n'
+                ).lower()
+
+            if check_results in ('y', 'yes'):
                 input(f'Press {check_results} again to confirm...\n')
                 return check_results
-            elif check_results == 'n' or check_results == 'no':
+
+            if check_results in ('n', 'no'):
                 print('Exiting the application...')
                 sys.exit()
 
@@ -114,10 +118,3 @@ def get_user_data(username):
         print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
         print('==========\n'.center(25))
     return True
-
-
-def new_user(username):
-    """
-    create a new username if user
-    is not returning visitor
-    """
