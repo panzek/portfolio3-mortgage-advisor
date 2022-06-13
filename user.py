@@ -81,7 +81,7 @@ def check_username(username):
             elif check_results == 'n' or check_results == 'no':
                 print('Exiting the application...')
                 sys.exit()
-           
+
         else:
             print(f'{chr(10)}{username} not found...')
             print(f'Creating your username...{chr(10)}')
@@ -118,6 +118,6 @@ def get_user_data(username):
 
 def new_user(username):
     """
-    create a new username if user 
+    create a new username if user
     is not returning visitor
     """

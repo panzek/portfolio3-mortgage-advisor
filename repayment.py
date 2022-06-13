@@ -7,14 +7,34 @@ euro = chr(8364)
 
 def get_loan_data():
     """ get data from user """
+    while True:
+        try:
+            price = float(input(f'Please enter property price: {euro}'))
+            loan_amount = float(input(f'Please enter loan amount: {euro}'))
+            loan_term = float(input('Please enter term loan:'))
+            monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
+            loan =  [price, loan_amount, loan_term, monthly_repayment]
 
-    price = float(input(f'Please enter property price: {euro}'))
-    loan_amount = float(input(f'Please enter loan amount: {euro}'))
-    loan_term = float(input('Please enter term loan:\n'))
-    monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
+            if isinstance(loan, str):
+                raise ValueError('must enter a username')
 
-    return [price, loan_amount, loan_term, monthly_repayment]
+        except ValueError as error_msg:
+            print(f'{error_msg} is not a number')
 
+        else:
+            return loan
+
+    # return [price, loan_amount, loan_term, monthly_repayment]
+
+def get_loan(price):
+    """ get data from user """
+
+    while True:
+        try:
+            price = float(input(f'Please enter property price: {euro}')) 
+            print(f'{price} not a number')
+        except ValueError:
+            print(' is not a number')
 
 def calculate_monthly_repayment(price, loan_amount, loan_term):
     """ calculate monthly repayment """
@@ -37,6 +57,6 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
 
     print('\nThe above mortgage calculator results are estimates') 
     print('based upon the information you have provided. The') 
-    print('results are calculated using the interest rates below.')
+    print('results are calculated using a fixed interest rate.')
 
     return monthly_repayment_amount
