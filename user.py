@@ -74,17 +74,26 @@ def check_username(username):
     while True:
         if existing_user:
             print(f'{chr(10)}Welcome back, {username}')
-            check_results = input(
-                'Do you want to retrieve existing mortgage results?: y/n\n'
-                ).lower()
+            print('\nPlease choose one of the following options: ')
+            print('1. to retrieve mortgage results')
+            print('2. to delete mortgage results')
+            print('3. to exit the program')
 
-            if check_results in ('y', 'yes'):
-                input(f'Press {check_results} again to confirm...\n')
-                return check_results
+            user_options = int(input('Please enter your option: 1,2,or 3: \n'))
+            if user_options == 1:
+                print('\nretrieving your mortgage results...\n')
+                break
 
-            if check_results in ('n', 'no'):
-                print('Exiting the application...')
-                sys.exit()
+            # quit_program = input(
+            #     'Do you want to exit application?: y/n\n'
+            #     ).lower()
+            # if quit_program in ('y', 'yes'):
+            #     input(f'Press {check_results} again to confirm...\n')
+            #     return check_results
+
+            # if quit_program in ('n', 'no'):
+            #     print('Exiting the application...')
+            #     sys.exit()
 
         else:
             print(f'{chr(10)}{username} not found...')
@@ -117,4 +126,5 @@ def get_user_data(username):
         print(f'3. Loan Term: {loan_term}yrs')
         print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
         print('==========\n'.center(25))
+
     return True
