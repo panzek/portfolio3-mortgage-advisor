@@ -84,16 +84,17 @@ def check_username(username):
                 print('\nretrieving your mortgage results...\n')
                 break
 
-            # quit_program = input(
-            #     'Do you want to exit application?: y/n\n'
-            #     ).lower()
-            # if quit_program in ('y', 'yes'):
-            #     input(f'Press {check_results} again to confirm...\n')
-            #     return check_results
+            if user_options == 3:
+                quit_program = input(
+                    '\nDo you really want to exit progam?: y/n\n'
+                    ).lower()
+                if quit_program in ('y', 'yes'):
+                    input(f'{chr(10)}Press {quit_program} again to confirm...')
+                    print(f'{chr(10)}Exiting the application...')
+                    sys.exit(f'{chr(10)}{username}, see you soon!')
 
-            # if quit_program in ('n', 'no'):
-            #     print('Exiting the application...')
-            #     sys.exit()
+                if quit_program in ('n', 'no'):
+                    return check_username(username)
 
         else:
             print(f'{chr(10)}{username} not found...')
