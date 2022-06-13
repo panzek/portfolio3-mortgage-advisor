@@ -16,11 +16,14 @@ def welcome_intro():
 
     print('Welcome to Mortgage Advisor Ireland!'.center(90))
     print('===================\n'.center(90))
-    pause(input('Please press any key to continue...'.center(90)))
+    pause(input('Please press any key to continue...'))
 
     print('\nAre you looking to buy a house in Ireland?')
     print('And you want to know the estimate of your monthly')
-    print('repayments when you borrow to get a mortgage?\n')
+    print('repayments when you borrow to get a mortgage?')
+    print('First, create a username or Enter existing one.\n')
 
-    print('First create a username or Enter existing one.')
+    input('Press any key to continue...')
+
+    return True
     

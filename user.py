@@ -22,7 +22,7 @@ def user_name():
     """username function to get data from user"""
 
     while True:
-        print('Username must be between 4 and 10 characters')
+        print('\nUsername must be between 4 and 10 characters')
         print('Characters A-Z, a-z, 0-9 and spaces are permitted')
         print('Leading and trailing whitespaces will be removed\n')
 
@@ -110,8 +110,9 @@ def check_username(username):
                     return check_username(username)
 
         else:
-            print(f'{chr(10)}{username} not found...')
-            print(f'Creating your username...{chr(10)}')
+            print(f'{chr(10)}{username} not found...{chr(10)}')
+            print('Creating your username...')
+            print(f'Created username, {username} successfully!{chr(10)}')
             validate_username(username)
             print(f'Welcome, {username}!')
 
