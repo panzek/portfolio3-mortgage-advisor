@@ -16,25 +16,14 @@ def get_loan_data():
             loan =  [price, loan_amount, loan_term, monthly_repayment]
 
             if isinstance(loan, str):
-                raise ValueError('must enter a username')
+                raise ValueError(loan)
 
         except ValueError as error_msg:
-            print(f'{error_msg} is not a number')
+            print(f'{error_msg} not a number, please try again!')
 
         else:
             return loan
 
-    # return [price, loan_amount, loan_term, monthly_repayment]
-
-def get_loan(price):
-    """ get data from user """
-
-    while True:
-        try:
-            price = float(input(f'Please enter property price: {euro}')) 
-            print(f'{price} not a number')
-        except ValueError:
-            print(' is not a number')
 
 def calculate_monthly_repayment(price, loan_amount, loan_term):
     """ calculate monthly repayment """
@@ -45,7 +34,7 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
 
     monthly_repayment_amount = total_repayment_amount/(loan_term*12)
 
-    print('RESULTS'.center(25)) 
+    print('RESULTS'.center(25))
     print('=============='.center(25))
     print(f'{chr(10)}For a mortgage of: {euro}{price}')
     print(
@@ -55,8 +44,8 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
     print(f'An interest rate of: {rate_of_interest}')
     print('=============='.center(25))
 
-    print('\nThe above mortgage calculator results are estimates') 
-    print('based upon the information you have provided. The') 
+    print('\nThe above mortgage calculator results are estimates')
+    print('based upon the information you have provided. The')
     print('results are calculated using a fixed interest rate.')
 
     return monthly_repayment_amount
