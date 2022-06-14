@@ -1,5 +1,6 @@
 """ Options menu """
 import sys
+import time
 from google.oauth2.service_account import Credentials
 
 
@@ -109,6 +110,8 @@ def check_menu_list(list_option):
             # quit()
 
     elif list_option == 5:
+        print('exiting the program')
+        time.sleep(3)
         sys.exit("You exit the program, thanks for looking in!")
     
     else:

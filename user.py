@@ -1,6 +1,7 @@
 """create user name"""
 import sys
 import gspread
+import time
 from google.oauth2.service_account import Credentials
 from welcome import welcome_intro
 
@@ -92,6 +93,9 @@ def check_username(username):
                 if delete_program in ('y', 'yes'):
                     input(f'{chr(10)}Press {delete_program} again to confirm...')
                     print(f'{chr(10)}Deleting previous mortgage results...')
+
+                    time.sleep(3)
+
                     first_time_buyer_sheet.delete_row(existing_user.row)
                     input(f'{chr(10)}Previous mortgage results deleted...')
 
@@ -104,6 +108,9 @@ def check_username(username):
                 if quit_program in ('y', 'yes'):
                     input(f'{chr(10)}Press {quit_program} again to confirm...')
                     print(f'{chr(10)}Exiting the application...')
+
+                    time.sleep(3)
+
                     sys.exit(f'{chr(10)}{username}, see you soon!')
 
                 if quit_program in ('n', 'no'):
@@ -112,6 +119,9 @@ def check_username(username):
         else:
             print(f'{chr(10)}{username} not found...{chr(10)}')
             print('Creating your username...')
+
+            time.sleep(3)
+
             print(f'Created username, {username} successfully!{chr(10)}')
             validate_username(username)
             print(f'Welcome, {username}!')
