@@ -20,6 +20,31 @@ def menu_list():
         return menu_list
 
 
+def validate_list(list_option):
+    """
+    This will check if the username input
+    data is valid or not, and will raise exception
+    to handle any errors
+    """
+
+    try:
+        if list_option == "":
+            raise ValueError('You must enter a value')
+        if list_option < 0:
+            raise ValueError(
+                'Username must have at least 4 characters'
+            )
+        if list_option > 5:
+            raise ValueError(
+                'Username must not exceed 5 characters'
+            )
+
+    except ValueError as error_msg:
+        print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
+        return False
+
+    return True
+
 def check_menu_list(list_option):
     """ handle user inputs and errors"""
 
@@ -87,4 +112,4 @@ def check_menu_list(list_option):
         sys.exit("You exit the program, thanks for looking in!")
     
     else:
-        menu_list(list_option)
+        validate_list(list_option)
