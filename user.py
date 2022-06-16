@@ -77,11 +77,11 @@ def check_username(username):
         if existing_user:
             print(f'{chr(10)}Welcome back, {username}')
             print('\nPlease choose one of the following options: ')
-            print('1. to retrieve mortgage results')
-            print('2. to delete mortgage results')
-            print('3. to exit the program')
+            print('1. Retrieve mortgage results')
+            print('2. Delete mortgage results')
+            print('3. Exit the program')
 
-            user_options = int(input('Please enter your option: 1,2,or 3: \n'))
+            user_options = int(input('\nEnter your choice: 1,2,or 3: \n'))
             if user_options == 1:
                 print('\nretrieving your mortgage results...\n')
                 break
@@ -126,7 +126,7 @@ def check_username(username):
             validate_username(username)
             print(f'Welcome, {username}!')
 
-            print('Please press any key to continue...')
+            print('\nPlease press any key to continue...')
             time.sleep(3)
 
             return existing_user
