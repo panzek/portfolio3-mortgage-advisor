@@ -1,7 +1,7 @@
 """create user name"""
 import sys
-import gspread
 import time
+import gspread
 from google.oauth2.service_account import Credentials
 from welcome import welcome_intro
 
@@ -126,6 +126,9 @@ def check_username(username):
             validate_username(username)
             print(f'Welcome, {username}!')
 
+            print('Please press any key to continue...')
+            time.sleep(3)
+
             return existing_user
 
 
@@ -153,3 +156,4 @@ def get_user_data(username):
         print('==========\n'.center(25))
 
     return True
+

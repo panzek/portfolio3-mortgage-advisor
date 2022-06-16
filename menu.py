@@ -5,46 +5,41 @@ from google.oauth2.service_account import Credentials
 
 
 def menu_list():
-    """ List of options """
-
-    while True:
-        print('Please choose one of the following options:')
-        print('1. Run an overview of this application')
-        print('2. Run through the instructions')
-        print('3. Run mortgage calculator')
-        print('4. Get existing mortgage calculator results')
-        print('5. Exit the application')
-
-        list_option = int(input('Please enter your option: 1,2,3,4, or 5: \n'))
-        check_menu_list(list_option)
-
-        return menu_list
-
-
-def validate_list(list_option):
-    """
-    This will check if the username input
+    """ 
+    List of options 
+    This will also check if the username input
     data is valid or not, and will raise exception
     to handle any errors
     """
 
-    try:
-        if list_option == "":
-            raise ValueError('You must enter a value')
-        if list_option < 0:
-            raise ValueError(
-                'Username must have at least 4 characters'
-            )
-        if list_option > 5:
-            raise ValueError(
-                'Username must not exceed 5 characters'
-            )
+    while True:
+        try:
+            print('Please choose one of the following options:')
+            print('1. Run an overview of this application')
+            print('2. Run through the instructions')
+            print('3. Run mortgage calculator')
+            print('4. Get existing mortgage calculator results')
+            print('5. Exit the application')
+  
+            list_option = int(input(f'{chr(10)}Please enter your option: 1,2,3,4,5: '))
+            # validate input
+            if list_option < 1 or list_option > 5:
+                time.sleep(1)
+                print('Enter a number between 1 and 5, try again!\n')
+                time.sleep(2)
+                continue
 
-    except ValueError as error_msg:
-        print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
-        return False
+        except ValueError:
+            time.sleep(1)
+            print('It needs to be a number, try again!\n')
+            time.sleep(2)
+            continue
+        
+        else:
+            break
+  
+    check_menu_list(list_option)
 
-    return True
 
 def check_menu_list(list_option):
     """ handle user inputs and errors"""
@@ -107,12 +102,13 @@ def check_menu_list(list_option):
         else:
             print('No Match!')
             input(f'Press {existing_result} again to confirm: ').lower()
-            # quit()
+            quit()
 
     elif list_option == 5:
         print('exiting the program')
         time.sleep(3)
-        sys.exit("You exit the program, thanks for looking in!")
+        sys.exit("Exited successfully, thanks for looking in!")
     
     else:
-        validate_list(list_option)
+        return True 
+ 
