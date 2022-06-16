@@ -10,12 +10,12 @@ def welcome_intro():
 
     title = 'Mortgage Advisor'
     banner = pyfiglet.figlet_format(
-        title, font='banner3-D', width=90, justify='center'
+        title, font='standard', width=60, justify='center'
         )
     print(banner)
 
-    print('Welcome to Mortgage Advisor Ireland!'.center(90))
-    print('===================\n'.center(90))
+    print('Welcome to Mortgage Advisor Ireland!'.center(60))
+    print('===================\n'.center(60))
     pause(input('Please press any key to continue...'))
 
     print('\nAre you looking to buy a house in Ireland?')
