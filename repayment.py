@@ -34,16 +34,16 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
 
     monthly_repayment_amount = total_repayment_amount/(loan_term*12)
 
-    loan_value = loan_amount/price
+    loan_value = int((loan_amount/price)*100)
 
     print('RESULTS'.center(25))
     print('=============='.center(25))
-    print(f'{chr(10)}For a mortgage of: {euro}{price}')
+    print(f'{chr(10)}For a mortgage of: {euro}{price:,.2f}')
     print(
-        f'Your monthly repayment would be: {euro}{monthly_repayment_amount:.2f}'
+        f'Your monthly repayment would be: {euro}{monthly_repayment_amount:,.2f}'
         )
-    print(f'with Loan to value (LTV) of: {loan_value}')
-    print(f'An interest rate of: {rate_of_interest}%')
+    print(f'with Loan to value (LTV) of: {loan_value}%')
+    print(f'And an interest rate of: {rate_of_interest}%')
     print('=============='.center(25))
 
     print('\nThe above mortgage calculator results are estimates')

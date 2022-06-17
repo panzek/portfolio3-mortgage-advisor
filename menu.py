@@ -2,7 +2,6 @@
 import sys
 import time
 from google.oauth2.service_account import Credentials
-from repayment import get_loan_data
 
 
 def menu_list():
@@ -75,8 +74,7 @@ def check_menu_list(list_option):
         print('\nThis mortgage calculator is for')
         print('First Time Buyer (FTB) only\n')
 
-        time.sleep(3)
-        get_loan_data()
+        time.sleep(2)
 
     elif list_option == 3:
         print('exiting the program')
