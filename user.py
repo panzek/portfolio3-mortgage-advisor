@@ -72,10 +72,10 @@ def check_username(username):
 
     print(f'Checking {username} in database...')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
-    print(f'{chr(10)}Welcome back, {username}')
 
     while True:
         if existing_user:
+            print(f'{chr(10)}Welcome back, {username}')
             try:
                 print('\nPlease choose one option: 1,2,or 3')
                 print('1. Retrieve mortgage results')
