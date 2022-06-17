@@ -100,14 +100,18 @@ def check_username(username):
 
     check_username_option(user_option, username, existing_user)
 
+
 def check_username_option(user_option, username, existing_user):
     """
     handle user inputs and exceptions
     """
     if user_option == 1:
-        print('\nretrieving your mortgage results...')
+        print('\nRetrieving mortgage calculator results...\n')
+
         time.sleep(3)
-        print('\nresults retrieved successfully...\n')
+        
+        get_user_data(username)
+        input(f'Results retrieved successfully...{chr(10)}')
 
     if user_option == 2:
         delete_program = input(
@@ -164,12 +168,12 @@ def get_user_data(username):
         euro = chr(8364)
         property_value = first_time_buyer_sheet.row_values(
             existing_user.row
-            )[-4]
-        loan_size = first_time_buyer_sheet.row_values(existing_user.row)[-3]
-        loan_term = first_time_buyer_sheet.row_values(existing_user.row)[-2]
+            )[1]
+        loan_size = first_time_buyer_sheet.row_values(existing_user.row)[2]
+        loan_term = first_time_buyer_sheet.row_values(existing_user.row)[3]
         monthly_repayment = first_time_buyer_sheet.row_values(
             existing_user.row
-            )[-1]
+            )[4]
         print('RESULTS'.center(25))
         print('=========='.center(25))
         print(f'1. Property Value: {euro}{property_value}')
