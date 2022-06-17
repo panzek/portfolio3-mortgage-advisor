@@ -28,11 +28,13 @@ def get_loan_data():
 def calculate_monthly_repayment(price, loan_amount, loan_term):
     """ calculate monthly repayment """
 
-    rate_of_interest = 10
+    rate_of_interest = 2.90
     interest = (rate_of_interest*loan_amount*loan_term)/100
     total_repayment_amount = interest + loan_amount
 
     monthly_repayment_amount = total_repayment_amount/(loan_term*12)
+
+    loan_value = loan_amount/price
 
     print('RESULTS'.center(25))
     print('=============='.center(25))
@@ -40,8 +42,8 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
     print(
         f'Your monthly repayment would be: {euro}{monthly_repayment_amount:.2f}'
         )
-    print('with Loan to value (LTV) of: 66.8%')
-    print(f'An interest rate of: {rate_of_interest}')
+    print(f'with Loan to value (LTV) of: {loan_value}')
+    print(f'An interest rate of: {rate_of_interest}%')
     print('=============='.center(25))
 
     print('\nThe above mortgage calculator results are estimates')

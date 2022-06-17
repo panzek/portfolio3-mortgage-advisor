@@ -72,89 +72,78 @@ def check_username(username):
 
     print(f'Checking {username} in database...')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
+    print(f'{chr(10)}Welcome back, {username}')
 
     while True:
         if existing_user:
             try:
-                print(f'{chr(10)}Welcome back, {username}')
-                print('\nPlease choose one of the following options: ')
+                print('\nPlease choose one option: 1,2,or 3')
                 print('1. Retrieve mortgage results')
                 print('2. Delete mortgage results')
                 print('3. Exit the program')
 
-                user_option = int(input('\nEnter your choice: 1,2,or 3: \n'))
+                user_option = int(input('Please enter your option: 1,2,or 3: \n'))
                 if user_option < 1 or user_option > 3:
                     time.sleep(1)
-                    print('Enter a number between 1 and 3, try again!\n')
+                    print('Enter a number between 1 and 3, try again!')
                     time.sleep(2)
                     continue
 
             except ValueError:
                 time.sleep(1)
-                print('It needs to be a number, try again!\n')
+                print('It needs to be a number, try again!')
                 time.sleep(2)
                 continue
 
-            else:
-                break
+            if user_option == 1:
+                print('\nRetrieving mortgage calculator results...')
+                time.sleep(3)
+                print(f'Results retrieved successfully...{chr(10)}')
+                get_user_data(username)
 
-    check_username_option(user_option, username, existing_user)
+                input(f'Press any key to return to options menu...{chr(10)}')
 
+            if user_option == 2:
+                delete_program = input(
+                    '\nDo you really want to delete previous mortgage results?: y/n\n'
+                    ).lower()
+                if delete_program in ('y', 'yes'):
+                    input(f'{chr(10)}Press {delete_program} again to confirm...')
+                    print(f'{chr(10)}Deleting previous mortgage results...')
 
-def check_username_option(user_option, username, existing_user):
-    """
-    handle user inputs and exceptions
-    """
-    if user_option == 1:
-        print('\nRetrieving mortgage calculator results...\n')
+                    time.sleep(3)
 
-        time.sleep(3)
-        
-        get_user_data(username)
-        input(f'Results retrieved successfully...{chr(10)}')
+                    first_time_buyer_sheet.delete_row(existing_user.row)
+                    input(f'{chr(10)}Previous mortgage results deleted...')
 
-    if user_option == 2:
-        delete_program = input(
-            '\nDo you really want to delete previous mortgage results?: y/n\n'
-            ).lower()
-        if delete_program in ('y', 'yes'):
-            input(f'{chr(10)}Press {delete_program} again to confirm...')
-            print(f'{chr(10)}Deleting previous mortgage results...')
+                    return welcome_intro()
+
+            if user_option == 3:
+                quit_program = input(
+                    '\nDo you really want to exit progam?: y/n'
+                    ).lower()
+                if quit_program in ('y', 'yes'):
+                    input(f'Press {quit_program} again to confirm...')
+                    print(f'{chr(10)}Exiting the application...')
+
+                    time.sleep(3)
+
+                    sys.exit(f'{chr(10)}{username}, see you soon!')
+
+                if quit_program in ('n', 'no'):
+                    return user_option
+
+        else:
+            print(f'{chr(10)}{username} not found...{chr(10)}')
+            print('Creating your username...')
 
             time.sleep(3)
 
-            first_time_buyer_sheet.delete_row(existing_user.row)
-            input(f'{chr(10)}Previous mortgage results deleted...')
-
-            return welcome_intro()
-
-    if user_option == 3:
-        quit_program = input(
-            '\nDo you really want to exit progam?: y/n'
-            ).lower()
-        if quit_program in ('y', 'yes'):
-            input(f'Press {quit_program} again to confirm...')
-            print(f'{chr(10)}Exiting the application...')
+            print(f'Created username, {username} successfully!{chr(10)}')
+            validate_username(username)
+            print(f'Welcome, {username}!')
 
             time.sleep(3)
-
-            sys.exit(f'{chr(10)}{username}, see you soon!')
-
-        if quit_program in ('n', 'no'):
-            return user_option
-
-    else:
-        print(f'{chr(10)}{username} not found...{chr(10)}')
-        print('Creating your username...')
-
-        time.sleep(3)
-
-        print(f'Created username, {username} successfully!{chr(10)}')
-        validate_username(username)
-        print(f'Welcome, {username}!')
-
-        print('\nPlease press any key to continue...')
-        time.sleep(3)
 
         return existing_user
 
@@ -183,4 +172,3 @@ def get_user_data(username):
         print('==========\n'.center(25))
 
     return True
-
