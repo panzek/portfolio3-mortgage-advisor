@@ -18,14 +18,14 @@ def welcome_intro():
     print_purple('...A Mortgage Calculator Application!'.center(80))
     print('===================\n'.center(80))
 
-    input('Please press any key to continue...\n')
+    pause('\033[36mPlease press any key to continue...\033[00m')
 
-    print('Are you looking to buy a house in Ireland?')
+    print('\nAre you looking to buy a house in Ireland?')
     print('And you want to obtain an estimate of the monthly')
     print('repayments when you borrow to get a mortgage? To use')
     print('our mortgage calculator, first enter a username\n')
 
-    input('Press any key to continue...')
+    pause('\033[36mPlease press any key to continue...\033[00m')
 
     return True
     
