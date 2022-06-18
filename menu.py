@@ -2,6 +2,7 @@
 import sys
 import time
 from google.oauth2.service_account import Credentials
+from print import print_yellow
 
 
 def menu_list():
@@ -69,9 +70,9 @@ def check_menu_list(list_option):
         menu_list()
 
     elif list_option == 2:
-        print('Mortgage Calculator'.center(25))
+        print_yellow('Mortgage Calculator'.center(25))
         print('=================='.center(25))
-        print('\nThis mortgage calculator is for')
+        print('This mortgage calculator is for')
         print('First Time Buyer (FTB) only\n')
 
         time.sleep(2)

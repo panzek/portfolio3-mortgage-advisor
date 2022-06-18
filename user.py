@@ -4,7 +4,7 @@ import time
 import gspread
 from google.oauth2.service_account import Credentials
 from welcome import welcome_intro
-from print import print_red, print_green, print_yellow
+from print import print_red, print_green, print_yellow, print_cyan
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -76,7 +76,7 @@ def check_username(username):
 
     while True:
         if existing_user:
-            print(f'{chr(10)}Welcome back, {username}')
+            print_cyan(f'{chr(10)}Welcome back, {username}')
             try:
                 print('\nPlease choose one option: 1,2,or 3')
                 print('1. Retrieve mortgage results')
@@ -142,7 +142,7 @@ def check_username(username):
 
             print_green(f'Created username, {username} successfully!{chr(10)}')
             validate_username(username)
-            print(f'Welcome, {username}!')
+            print_cyan(f'Welcome, {username}!')
 
             time.sleep(3)
 

@@ -2,16 +2,29 @@
 get data from user and
 calculate monthly repayment
 """
+from print import print_red, print_green
+
 euro = chr(8364)
 
 
 def get_loan_data():
     """ get data from user """
+
     while True:
         try:
             price = float(input(f'Please enter property price: {euro}'))
             loan_amount = float(input(f'Please enter loan amount: {euro}'))
-            loan_term = float(input('Please enter term loan:'))
+
+            loan_value = int((loan_amount/price)*100)
+            if loan_value >= 90:
+                print_red('Mortgage amount cannot exceed 90% of purchase price')
+                continue
+
+        except OverflowError:
+            return False
+        
+        try:
+            loan_term = float(input('Please enter term loan: '))
             monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
             loan =  [price, loan_amount, loan_term, monthly_repayment]
 
@@ -19,7 +32,8 @@ def get_loan_data():
                 raise ValueError(loan)
 
         except ValueError as error_msg:
-            print(f'{error_msg} not a number, please try again!')
+            print(f'{error_msg} not a number, please try again!')  
+            return False      
 
         else:
             return loan
@@ -36,9 +50,9 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
 
     loan_value = int((loan_amount/price)*100)
 
-    print('RESULTS'.center(25))
+    print_green('RESULTS'.center(25))
     print('=============='.center(25))
-    print(f'{chr(10)}For a mortgage of: {euro}{price:,.2f}')
+    print(f'For a mortgage of: {euro}{price:,.2f}')
     print(
         f'Your monthly repayment would be: {euro}{monthly_repayment_amount:,.2f}'
         )
@@ -46,8 +60,10 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
     print(f'And an interest rate of: {rate_of_interest}%')
     print('=============='.center(25))
 
-    print('\nThe above mortgage calculator results are estimates')
-    print('based upon the information you have provided. The')
-    print('results are calculated using a fixed interest rate.')
-
+    print_red('\nDisclaimer:')
+    print('This mortgage calculator is for illustrative')
+    print('purposes only and does not constitute approval')
+    print('in principle or an offer of loan facilities')
+    
     return monthly_repayment_amount
+    
