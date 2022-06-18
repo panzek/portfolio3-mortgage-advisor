@@ -22,9 +22,18 @@ def get_loan_data():
 
         except OverflowError:
             return False
-        
+
         try:
             loan_term = float(input('Please enter term loan: '))
+    
+            if loan_term < 5 or loan_term > 35:
+                print_red('Number of years must be between 5 and 35')
+                continue
+
+        except ValueError:
+            return False
+        
+        try:
             monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
             loan =  [price, loan_amount, loan_term, monthly_repayment]
 
@@ -66,4 +75,4 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
     print('in principle or an offer of loan facilities')
     
     return monthly_repayment_amount
-    
+
