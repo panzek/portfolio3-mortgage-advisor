@@ -1,6 +1,8 @@
 '''Handle import and banner'''
 
 import pyfiglet
+from print import print_cyan
+from print import print_purple
 from getch import getch, pause
 
 
@@ -12,16 +14,16 @@ def welcome_intro():
     banner = pyfiglet.figlet_format(
         title, font='standard', width=80, justify='center'
         )
-    print(banner)
-    print('...A Mortgage Calculator Application!'.center(80))
+    print_cyan(banner)
+    print_purple('...A Mortgage Calculator Application!'.center(80))
     print('===================\n'.center(80))
 
     input('Please press any key to continue...\n')
 
-    print('\nAre you looking to buy a house in Ireland?')
-    print('And want to obtain an estimate of the monthly')
-    print('repayments when you borrow to get a mortgage? Use')
-    print('our mortgage calculator. First, enter a username\n')
+    print('Are you looking to buy a house in Ireland?')
+    print('And you want to obtain an estimate of the monthly')
+    print('repayments when you borrow to get a mortgage? To use')
+    print('our mortgage calculator, first enter a username\n')
 
     input('Press any key to continue...')
 
