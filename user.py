@@ -3,6 +3,7 @@ import sys
 import time
 import gspread
 from google.oauth2.service_account import Credentials
+from getch import pause
 from welcome import welcome_intro
 from print import print_red, print_green, print_yellow, print_cyan, print_purple
 
@@ -102,7 +103,8 @@ def check_username(username):
                 print_green(f'Results retrieved successfully...{chr(10)}')
                 get_user_data(username)
 
-                input(f'Press any key to return to options menu...{chr(10)}')
+                pause(f'Press any key to return to options menu...{chr(10)}')
+                return check_username(username)
 
             if user_option == 2:
                 delete_program = input(
@@ -172,4 +174,4 @@ def get_user_data(username):
         print(f'4. Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
         print('==========\n'.center(25))
 
-    return True
+    # return existing_user
