@@ -4,6 +4,7 @@ import time
 import gspread
 from google.oauth2.service_account import Credentials
 from welcome import welcome_intro
+from print import print_red, print_green, print_yellow
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -58,7 +59,7 @@ def validate_username(username):
             )
 
     except ValueError as error_msg:
-        print(f'Invalid Data: {error_msg}, please try again{chr(10)}')
+        print_red(f'{error_msg}, please try again')
         return False
 
     return True
@@ -85,20 +86,20 @@ def check_username(username):
                 user_option = int(input('Please enter your option: 1,2,or 3: \n'))
                 if user_option < 1 or user_option > 3:
                     time.sleep(1)
-                    print('Enter a number between 1 and 3, try again!')
+                    print_red('Enter a number between 1 and 3, try again!')
                     time.sleep(2)
                     continue
 
             except ValueError:
                 time.sleep(1)
-                print('It needs to be a number, try again!')
+                print_red('Invalid Data: It needs to be a number, try again!')
                 time.sleep(2)
                 continue
 
             if user_option == 1:
                 print('\nRetrieving mortgage calculator results...')
                 time.sleep(3)
-                print(f'Results retrieved successfully...{chr(10)}')
+                print_green(f'Results retrieved successfully...{chr(10)}')
                 get_user_data(username)
 
                 input(f'Press any key to return to options menu...{chr(10)}')
@@ -134,12 +135,12 @@ def check_username(username):
                     return user_option
 
         else:
-            print(f'{chr(10)}{username} not found...{chr(10)}')
+            print_red(f'{chr(10)}{username} not found...{chr(10)}')
             print('Creating your username...')
 
             time.sleep(3)
 
-            print(f'Created username, {username} successfully!{chr(10)}')
+            print_green(f'Created username, {username} successfully!{chr(10)}')
             validate_username(username)
             print(f'Welcome, {username}!')
 
@@ -163,7 +164,7 @@ def get_user_data(username):
         monthly_repayment = first_time_buyer_sheet.row_values(
             existing_user.row
             )[4]
-        print('RESULTS'.center(25))
+        print_yellow('RESULTS'.center(25))
         print('=========='.center(25))
         print(f'1. Property Value: {euro}{property_value}')
         print(f'2. Loan Size: {euro}{loan_size}')
