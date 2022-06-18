@@ -4,7 +4,7 @@ import time
 import gspread
 from google.oauth2.service_account import Credentials
 from welcome import welcome_intro
-from print import print_red, print_green, print_yellow, print_cyan
+from print import print_red, print_green, print_yellow, print_cyan, print_purple
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -71,19 +71,19 @@ def check_username(username):
     data. If there is no such username create a username
     """
 
-    print(f'Checking {username} in database...')
+    print_purple(f'Checking "{username}" in database...')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
 
     while True:
         if existing_user:
             print_cyan(f'{chr(10)}Welcome back, {username}')
             try:
-                print('\nPlease choose one option: 1,2,or 3')
-                print('1. Retrieve mortgage results')
-                print('2. Delete mortgage results')
-                print('3. Exit the program')
+                print('Please choose one option: 1,2,or 3')
+                print('\033[1;35m1.\033[00m Retrieve mortgage results')
+                print('\033[1;35m2.\033[00m Delete mortgage results')
+                print('\033[1;35m3.\033[00m Exit the program')
 
-                user_option = int(input('Please enter your option: 1,2,or 3: \n'))
+                user_option = int(input('Enter your option: 1,2,or 3: \n'))
                 if user_option < 1 or user_option > 3:
                     time.sleep(1)
                     print_red('Enter a number between 1 and 3, try again!')
@@ -97,7 +97,7 @@ def check_username(username):
                 continue
 
             if user_option == 1:
-                print('\nRetrieving mortgage calculator results...')
+                print_cyan('Retrieving mortgage calculator results...')
                 time.sleep(3)
                 print_green(f'Results retrieved successfully...{chr(10)}')
                 get_user_data(username)
@@ -125,7 +125,7 @@ def check_username(username):
                     ).lower()
                 if quit_program in ('y', 'yes'):
                     input(f'Press {quit_program} again to confirm...')
-                    print(f'{chr(10)}Exiting the application...')
+                    print_red(f'{chr(10)}Exiting the application...')
 
                     time.sleep(3)
 
@@ -135,12 +135,12 @@ def check_username(username):
                     return user_option
 
         else:
-            print_red(f'{chr(10)}{username} not found...{chr(10)}')
-            print('Creating your username...')
+            print_red(f'{username} not found...{chr(10)}')
+            print_purple('Creating your username...')
 
             time.sleep(3)
 
-            print_green(f'Created username, {username} successfully!{chr(10)}')
+            print_green(f'Created username, "{username}" successfully!{chr(10)}')
             validate_username(username)
             print_cyan(f'Welcome, {username}!')
 
@@ -166,10 +166,10 @@ def get_user_data(username):
             )[4]
         print_yellow('RESULTS'.center(25))
         print('=========='.center(25))
-        print(f'1. Property Value: {euro}{property_value}')
-        print(f'2. Loan Size: {euro}{loan_size}')
-        print(f'3. Loan Term: {loan_term}yrs')
-        print(f'4. Monthly Repayment: {euro}{monthly_repayment}')
+        print(f'1. Property Value: \033[1;35m{euro}{property_value}\033[00m')
+        print(f'2. Loan Size: \033[1;35m{euro}{loan_size}\033[00m')
+        print(f'3. Loan Term: \033[1;35m{loan_term}yrs\033[00m')
+        print(f'4. Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
         print('==========\n'.center(25))
 
     return True

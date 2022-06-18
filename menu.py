@@ -2,7 +2,7 @@
 import sys
 import time
 from google.oauth2.service_account import Credentials
-from print import print_yellow
+from print import print_yellow, print_red
 
 
 def menu_list():
@@ -78,9 +78,9 @@ def check_menu_list(list_option):
         time.sleep(2)
 
     elif list_option == 3:
-        print('exiting the program')
+        print_red('exiting the program')
         time.sleep(3)
-        sys.exit("Exited successfully, thanks for looking in!")
+        sys.exit('\033[1;32mExited successfully, thanks for looking in!\033[00m')
 
     else:
         return True
