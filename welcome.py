@@ -14,7 +14,7 @@ def welcome_intro():
     banner = pyfiglet.figlet_format(
         title, font='standard', width=80, justify='center'
         )
-    print_cyan(banner)
+    print(banner)
     print_yellow('...A Mortgage Calculator Application!'.center(80))
     print('===================\n'.center(80))
 

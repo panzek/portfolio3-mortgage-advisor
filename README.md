@@ -2,15 +2,15 @@
 
 * **Introduction**
 
-**Mortgage Advisor** is a mortgage calculator application for first time buyers of housing property in Ireland. The application has relied on information and data provided by the Central Bank of Ireland as part of the overview of its the new Mortgage lending in Ireland for half of 2021 (H12021) to set the interest rate and Loan to Value limit.
+**Mortgage Advisor** is a mortgage calculator application for first time buyers of housing property in Ireland. This application has relied on the information and data provided by the Central Bank of Ireland in its overview of the new Mortgage lending in Ireland for half of 2021 (H12021), particularly in the areas of the interest rate and Loan to Value limit.
 
-The Central Bank of Ireland’s mortgage lending measures that were introduced in February 2015. “The measures set limits on the size of mortgages that consumers can borrow through the use of loan-to-value (LTV) and loan-to-income (LTI) limits.” Loan to Income (LTI) is the limit the maximum amount someone buyers can borrow to 3.5 times their annual income. And Loan to Value (LTV) is the percentage of the property’s value that a buyer can borrow and how much of it that would have to be paid upfront in the form of a deposit.
+The Central Bank of Ireland’s mortgage lending measures were introduced in February 2015. “The measures set limits on the size of mortgages that consumers can borrow through the use of loan-to-value (LTV) and loan-to-income (LTI) limits.” Loan to Value (LTV) is the percentage of the property’s value that a buyer can borrow and how much of it that would have to be paid upfront in the form of a deposit. And Loan to Income (LTI) is the limit the maximum amount someone buyers can borrow to 3.5 times their annual income. 
 
 * **The Goal of the Quiz**
 
-**The goal of this application** is to calculate the mortgage and provide the first-time buyer (the user) an estimate of the monthly mortgage repayment based on the data provided by the user such as Price of the property, Loan Amount that will be provided by the lending institution, and the number of years for the loan repayment. The mortgage calculator is a basic app, interactive, and easy to use. However, it is for illustrative purposes only. The application runs in a Command Line Interface and deployed through Heroku.
+**The goal of this application** is to calculate the mortgage and provide the first-time buyer (the user) an estimate of the monthly mortgage repayment, based on the data provided by the user: Price of the property, Loan Amount, and the number of years for the loan repayment. The mortgage calculator is a basic app, interactive, and easy to use. However, it is for illustrative purposes only. The application runs in a Command Line Interface and is deployed through Heroku.
 
-![Mortgage Advisor Mockup](doc/images/afrobeats-mockup.png)
+![Mortgage Advisor Mockup](doc/images/)
 
 [View Live Project Here](https://mortgage-advisor.herokuapp.com/)
 
@@ -20,11 +20,10 @@ The Central Bank of Ireland’s mortgage lending measures that were introduced i
     * [User Stories](#user-stories)
     * [Design](#design)
     * [Color Scheme](#color-scheme)
-    * [Typography](#typography)
     * [Wireframes](#wireframes)
     * [Flowchart](#flowchart)
 
-1. [Features](#features)
+2. [Features](#features)
     * [Existing features](#existing-features)
       * [Username](#username)
       * [About the application](#about-the-application)
@@ -34,21 +33,21 @@ The Central Bank of Ireland’s mortgage lending measures that were introduced i
       * [Exit the Application](#exit-the-application)
     * [Features to be implemented](#features-to-be-implemented)
   
-2. [Data Model](#data-model)
+3. [Data Model](#data-model)
 
-3. [Technology Stack](#technology-stack) 
+4. [Technology Stack](#technology-stack)
     * [Languages Used](#languages-used)
     * [Python Libraries](#python-libraries)
     * [VSCode Extensions Used](#vscode-extensions-used)
 
-4. [Testing](#testing)
+5. [Testing](#testing)
     * [PEP8 Testing](#pep8-testing)
     * [Validator Testing](#validator-testing)
     * [Accessibility Testing](#accessibility-testing)
 
-5. [Clone](#clone)
-6. [Deployment](#deployment)
-7. [Credits](#credits)
+6. [Clone](#clone)
+7. [Deployment](#deployment)
+8. [Credits](#credits)
     * [Acknowledgements](#acknowledgements)
 
 ## User Experience (UX)
@@ -57,36 +56,29 @@ The Central Bank of Ireland’s mortgage lending measures that were introduced i
 
 #### A new user
 
-* As a new user, I want to be able to choose a name unique to me in which to store the results of my mortgage calculation.
-  * A returning user can access the application using their previously created username, as all usernames are stored in the spreadsheet. Previous mortgage results are also accessible to only the returning user. A returning user may choose to only access the results or delete it.
-* As a returning user I want to be able to delete my saved previous mortgage calculator results and perhaps run another mortgage calculator.
-  * returning users may choose to delete their previous saved mortgage calculator results.
-* As a returning user I want to be able to exit the programme successfully at anytime.
-  * The programme provides a function that enables the returning user to exit the programme on first logged in. There are 3 options for a returning user immediately the user logs in. And one these three options is the choice to exit the programme.
+* As a new user, I want to be able to choose a name unique to me with which to store the results of my mortgage calculation.
+  * It is a requirement that all new users of the application should create a username. And on entering a username, the application will first check if the username is in the database. If username is not found, the username entered by the user will be created automatically to enable the user proceed further.
+* As a new user, I want to get different options on how to use the application.
+  * The application provides a new user with 3 different options: the first option is the choice to “Run an overview of this application”. This gives a quick run down of what the application is all about and how to use it. The second option is the choice to run the mortgage calculator to calculate the monthly mortgage repayment. And the third and last option is the choice to exit the programme. All three options are independent so a user may select an option in no particular order.
+* As a new user, I want to be able to run the mortgage calculator to know the estimate of my monthly repayment based on the amount I will borrow to get a mortgage.
+  * The application is a mortgage calculator for first time buyers (FTB) only. The application collects only 3 data from the FTB for its calculation: Property price, Loan Amount, and number of years for the loan. The mortgage calculator is a basic app, interactive, and easy to use.
+* As a new user, I want to be able to exit the program should I decide not to use it.
+  * On signing into the Mortgage Advisor application, the new user is presented with 3 “new user” options. One of this options is the option to exit the program. At this “option” stage, the user name entered by the new user has been created but has not been stored. So on choosing to quit the programme, the username will automatically be removed, and will be available to be registered by the new user on return visit or by any other new user.
 
 #### A returning/existing user
 
 * As a returning user, I want to be able to access and retrieve my previous mortgage calculation results using my user name.
-  * It is a requirement that all new users of the application should create a username. And on entering a username, the application will first check if the username is in the database. If username is not found, the username entered by the user will be created automatically to enable the user proceed further.
-* As a new user I want to get different options on how to use the application.
-  * The application provides a new user with 3 different options: the first option is the choice to “Run an overview of this application”. This gives a quick run down of what the application is all about and how to use it. The second option is the choice to run the mortgage calculator to calculate the monthly mortgage repayment. And the third and last option is the choice to exit the programme. All three options are independent so a user may select an option in no particular order.
-* As a new user I want to be able to run the mortgage calculator to know the estimate of my monthly repayment based on the amount I will borrow to get a mortgage.
-  * The application is a mortgage calculator for first time buyers (FTB) only. The application collects only 3 data from the FTB for its calculation: Property price; Loan Amount, and number of years for the loan. The mortgage calculator is a basic app, interactive, and easy to use.
-* As a new user, I want to be able to exit the program should I decide not to use it.
-  * On signing into the Mortgage Advisor application, the new user is presented with 3 “new user” options. One of this options is the option to exit program. Here the new user may choose to exit the program. At this “option” stage, the user name entered by the new user has been created but has not been stored. So on choose to quit the programme the username is automatically removed and available for use can by the given new user on future visit or by any other new user.
+  * A returning user can access the application using their previously created username, as all usernames are stored in the spreadsheet. Previous mortgage results are also accessible to only the returning user. A returning user may choose to only access the results or delete it.
+* As a returning user, I want to be able to delete my saved previous mortgage calculator results and perhaps run another mortgage calculator.
+  * Returning users may choose to delete their previous saved mortgage calculator results. It is one of the options in the existing user menu list.
+* As a returning user, I want to be able to exit the programme successfully at anytime.
+  * The programme provides a function that enables the returning user to exit the programme. There are 3 options for a returning user immediately the user logs in. And one these three options is the option (option 3) to exit the programme.
 
 ### Design
 
 * Color Scheme
   * The colors used in the terminal are Green color, Red color, Yellow, and Cyan.
   * These are colors provided by colorama package within python and using ASNI code to apply the colors to the terminal text
-  * Also, extreme care was taken not to sacrifice WCAG 2.0 criteria in the altar of functional needs by checking color values for accessible contrast using [EightShapes’](https://contrast-grid.eightshapes.com/) color contrast grid tool.
-
-      ![Color Scheme](doc/images/color-scheme-eight-shapes.webp)
-
-* Typography
-  * [Roboto](https://fonts.google.com/specimen/Roboto)
-  * Sans-serif
 
 * Wireframes
   * The wireframe was created using [Balsamiq](https://balsamiq.com/). And it was designed for desktop only.
@@ -167,17 +159,15 @@ The Central Bank of Ireland’s mortgage lending measures that were introduced i
   * [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
   * [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
   * [JavaScript](https://www.javascript.com/)
- 
 
 * **Python Libraries**
   * [Colorama](https://pypi.org/project/colorama/)
   * [Diagram.net](https://www.diagrams.net/)
   * [Error and Exceptions Handling](https://docs.python.org/3/tutorial/errors.html)
-  * [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html) 
-  * [gspread](https://fontawesome.com/)
+  * [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html)
+  * [gspread](https://pypi.org/project/gspread/ )
   * [PyFiglet](https://pypi.org/project/pyfiglet/0.7/)
   * [py-getch](https://github.com/joeyespo/py-getch)
-
 
 * **VSCode Extensions Used**
   * [Markdown lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - used For style checking and to maintaining standard.
@@ -186,57 +176,84 @@ The Central Bank of Ireland’s mortgage lending measures that were introduced i
 ## Testing
 
 * PEP8 Testing
-  * [W3C Markup Validator](https://validator.w3.org/) was used to check the markup validity of the HTML5 for technical quality and correctness, and no errors found.
+  * [PEP8 online](http://pep8online.com/) was used to check the code for PEP8 requirements.
 
-     ![HTML Validation Result](doc/images/html-validator-report.png)
-* Validator Testing
-  * [W3C Markup Validator](https://validator.w3.org/) was used to check the markup validity of the HTML5 for technical quality and correctness, and no errors found.
-
-     ![HTML Validation Result](doc/images/html-validator-report.png)
-
-  * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to check the markup validity of the CSS3 for technical quality and correctness, and no errors found.
-
-    ![CSS Validation Result](doc/images/css-validator-results.png)
-
-  * [Python Tutor](https://pythontutor.com/visualize.html) – used to Visualize JavaScript code execution.
-
+     ![Python code Validation Result](doc/images/)
+* 
 * Accessibility Testing
   * [Accessibility Insights](https://accessibilityinsights.io/) was used to check and fix accessibility issues.
   * [Chrome's Lighthouse](https://developers.google.com/web/tools/lighthouse) - used to test accessibility, and the check returned the reports below:
 
     * Desktop
 
-        ![Lighthouse Report Desktop](doc/images/lighthouse-report-desktop.png)
-
-    * Mobile
-
-        ![Lighthouse Report Mobile](doc/images/lighthouse-report-mobile.png)
+        ![Lighthouse Report Desktop](doc/images/)
 
 ## Clone
 
 * Clone from GitHub to VSCode:
-    1. Log in to [GitHub](https://panzek.github.io/portfolio2-afrobeats-quiz/)
-    2. Click on the profile icon at the top right-hand site of the page
+    1. Log in to [GitHub](https://github.com/panzek/portfolio3-mortgage-advisor)
+    2. Click on the code button beside the green gitpod button. 
+    3. Copy the link and go to VSCode
+    4. Press F1 to display the command palette. 
+    5. Enter gitcl, select the Git: Clone command, press Enter
+    6. When prompted for the Repository URL, enter the copied GitHub repository url, then press Enter. 
+    7. Select (or create) the local directory into which you want to clone the project.
+    8. Repository is now ready for development
 
-* Set Environment Variable :
+* Environment Variable:
+  * As shared in Slack community, which I used as a guide in setting mine up:
+    1. Create virtual environment in the project folder - d:\workspaces>python –m venv my_project\venv 
+    2. Activate the virtual environment - d:\workspaces>my_project\venv\Scripts\activate.bat 
+    3. cd into new project folder - d:\workspaces>cd my_project
+    4. To open in VSCode - d:\workspaces\my_project>code. (or right click the folder itself and select Open in VSCode)
+    5. Open VSCode and Press CONTROL+SHIFT+P, type‘Python Interpreter’ and select it.
+    6. Either select the venv environment from the list or click ‘Enter interpreter path’ and navigate to the venv folder, and proceed into Scripts and select python.exe 
+    7. venv\Scripts\python.exe
 
 ## Deployment
 
 * The website was deployed to Heroku Pages. These were the steps taken for the deployment:
     1. Log in to [Heroku](https://id.heroku.com/login)
+        * Steps for deployment Creating a Heroku Account/App Create/login into a Heroku account.
+        * Click "New" menu and select "Create new app"
+        * Fill out the form; choosing a unique app name and region.
+        * Click on "Create app"
+    2. Configuration
+  * Click on the settings menu
+    * Add PORT to Config Vars and set its value to 8000
+    * In the field for key, enter CREDS, all capital letters.
+    * Go  to  your workspace (VScode or Gitpod)
+    * copy the entire content of creds.json file,
+    * Paste it into the value field and click “Add”.
+  * Click “Add buildpack”
+    * Set the buildpacks to Python and NodeJS (Be sure buildpacks are in this order)
+  * Click on the Deploy section
+    * Select Github Click connect to Github
+    * Click “Search” to search for your Github repository name
+    * Click “connect” to link up your Heroku app to your Github repository code
+  * Scroll down to the bottom to choose your preferred mode of deployment:
+    * Choose "Enable automatic deploys" or "Deploy Branch" to deploy manually - I chose the latter.
+    * If successfully deployed, you will see the message "“App was  successfully deployed”
+    * Click the "View" button to go to the terminal
+    * Check that your app is up and running.
 
     [View Live Project Here](https://mortgage-advisor.herokuapp.com/)
 
 ## Credits
 
+* [Code Institute](https://codeinstitute.net/) lectures and “Love Sandwiches” walkthrough project helped shape the ideas and techniques that frame this Portfolio Project 3 for Diploma the [Full Stack Software Development](https://codeinstitute.net/ie/full-stack-software-development-diploma/).
+* Central Bank of Ireland's [New Mortgage Lending - Data and Commentary](https://www.centralbank.ie/financial-system/financial-stability/macro-prudential-policy/mortgage-measures/new-mortgage-lending-data-and-commentary) provided me with information and data resource that shape my idea that informed he creation of this project.
 * [Colorama](https://youtu.be/u51Zjlnui4Y) - to output colored text to the terminal in Python  
-* Print Colors in Python terminal <https://www.geeksforgeeks.org/print-colors-python-terminal/>
-* [The most common way to print colored text is by printing ANSI escape sequences](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors) -
+* [Mark Down Guide](https://www.markdownguide.org/basic-syntax/)  
+* [Print Colors in Python terminal](https://www.geeksforgeeks.org/print-colors-python-terminal/)
+* [ANSI escape sequences](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors) -
 * [Python Print Without Newline: Step-by-Step Guide](https://careerkarma.com/blog/python-print-without-new-line/)  - got the idea here on how to fix new line added to the end of the string in terminal colored text print functions.
 * Text content of the Disclaimer under the mortgage calculation results was taken from [ESB](https://www.ebs.ie/mortgage-repayment-calculator)
+* [Tinypng.com](https://tinypng.com/) – used to reduce the file size.
+* [Stackoverflow](https://stackoverflow.com/) was a site I used extensively to find answers to some knotty coding issues. 
   
 ## Acknowledgements
 
-* Another intervention. Another rescue! Thank you, [Matt Bodden](https://github.com/MattBCoding)!
-  * For all the help and support, thank you [Akshat Garg](https://github.com/akshatnitd), my [Code Institute](https://github.com/Code-Institute-Org) mentor. 
-  * To [Code Institute](https://github.com/Code-Institute-Org) Student care team for your care and understanding, always.
+* Another intervention. Another rescue. Thank you, [Matt Bodden](https://github.com/MattBCoding). Again, that you!
+* For all the help and support, thank you [Akshat Garg](https://github.com/akshatnitd), my [Code Institute](https://github.com/Code-Institute-Org) mentor.
+* To [Code Institute](https://github.com/Code-Institute-Org) Student care team for your care and understanding, always.
