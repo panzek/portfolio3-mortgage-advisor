@@ -1,9 +1,9 @@
 '''Handle import and banner'''
 
 import pyfiglet
-from print import print_cyan
-from print import print_purple
 from getch import getch, pause
+from print import print_cyan
+from print import print_yellow
 
 
 def welcome_intro():
@@ -15,7 +15,7 @@ def welcome_intro():
         title, font='standard', width=80, justify='center'
         )
     print_cyan(banner)
-    print_purple('...A Mortgage Calculator Application!'.center(80))
+    print_yellow('...A Mortgage Calculator Application!'.center(80))
     print('===================\n'.center(80))
 
     pause('\033[1;36mPlease press any key to continue...\033[00m')

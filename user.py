@@ -127,7 +127,7 @@ def check_username(username):
 
         else:
             print_red(f'{username} not found...{chr(10)}')
-            print_purple('Creating your username...')
+            print_cyan('Creating your username...')
 
             sleep(3)
 
