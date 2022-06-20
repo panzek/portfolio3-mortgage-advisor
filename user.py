@@ -72,19 +72,20 @@ def check_username(username):
     data. If there is no such username create a username
     """
 
-    print_purple(f'Checking "{username}" in database...')
+    print_yellow(f'Checking "{username}" in database...')
     existing_user = first_time_buyer_sheet.find(username, in_column=1)
 
     while True:
         if existing_user:
             print_cyan(f'{chr(10)}Welcome back, {username}')
+            sleep(3)
             try:
-                print('Please choose one option: 1,2,or 3')
-                print('\033[1;35m1.\033[00m Retrieve mortgage results')
-                print('\033[1;35m2.\033[00m Delete mortgage results')
-                print('\033[1;35m3.\033[00m Exit the program')
+                print('Please choose one option: \033[1;33m1,2,or 3\033[00m')
+                print('\033[1;33m1.\033[00m Retrieve mortgage results')
+                print('\033[1;33m2.\033[00m Delete mortgage results')
+                print('\033[1;33m3.\033[00m Exit the program')
 
-                user_option = int(input('Enter your option: 1,2,or 3: \n'))
+                user_option = int(input('Enter your option: \033[1;33m1,2,or 3\033[00m: \n'))
                 if user_option < 1 or user_option > 3:
                     sleep(1)
                     print_red('Enter a number between 1 and 3, try again!')
@@ -114,14 +115,15 @@ def check_username(username):
                 first_time_buyer_sheet.delete_row(existing_user.row)
                 print_red('Previous mortgage results deleted...')
                 sleep(3)
+                input('')
 
                 return welcome_intro()
 
             if user_option == 3:
-                pause('\nPress any key to continue')
+                pause('Press any key to continue')
                 print_red('Exiting the application...')
                 sleep(3)
-                sys.exit(f'{chr(10)}{username}, see you soon!')
+                sys.exit(f'{chr(10)}Hey {username}, see you soon!')
 
         else:
             print_red(f'{username} not found...{chr(10)}')
@@ -155,10 +157,10 @@ def get_user_data(username):
             )[4]
         print_yellow('RESULTS'.center(25))
         print('=========='.center(25))
-        print(f'1. Property Value: \033[1;35m{euro}{property_value}\033[00m')
-        print(f'2. Loan Size: \033[1;35m{euro}{loan_size}\033[00m')
-        print(f'3. Loan Term: \033[1;35m{loan_term}yrs\033[00m')
-        print(f'4. Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
+        print(f'\033[1;33m1.\033[00m Property Value: \033[1;35m{euro}{property_value}\033[00m')
+        print(f'\033[2;33m1.\033[00m Loan Size: \033[1;35m{euro}{loan_size}\033[00m')
+        print(f'\033[3;33m1.\033[00m Loan Term: \033[1;35m{loan_term}yrs\033[00m')
+        print(f'\033[4;33m1.\033[00m Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
         print('==========\n'.center(25))
 
 
