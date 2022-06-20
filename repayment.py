@@ -2,7 +2,7 @@
 get data from user and
 calculate monthly repayment
 """
-from print import print_red, print_green
+from print import print_red, print_yellow
 
 euro = chr(8364)
 
@@ -20,8 +20,9 @@ def get_loan_data():
                 print_red('Mortgage amount cannot exceed 90% of purchase price')
                 continue
 
-        except OverflowError:
-            return False
+        except ValueError:
+            print_red('Not a number, please try again!')
+            continue
 
         try:
             loan_term = float(input('Please enter term loan: '))
@@ -31,23 +32,15 @@ def get_loan_data():
                 continue
 
         except ValueError:
-            return False
-        
-        try:
-            monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
-            loan =  [price, loan_amount, loan_term, monthly_repayment]
-
-            if isinstance(loan, str):
-                raise ValueError(loan)
-
-        except ValueError as error_msg:
-            print(f'{error_msg} not a number, please try again!')  
-            return False      
+            print_red('Not a number, please try again!')
+            continue  
 
         else:
+            monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
+            loan =  [price, loan_amount, loan_term, monthly_repayment]
             return loan
 
-
+            
 def calculate_monthly_repayment(price, loan_amount, loan_term):
     """ calculate monthly repayment """
 
@@ -59,14 +52,14 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
 
     loan_value = int((loan_amount/price)*100)
 
-    print_green('RESULTS'.center(25))
+    print_yellow('RESULTS'.center(25))
     print('=============='.center(25))
-    print(f'For a mortgage of: {euro}{price:,.2f}')
+    print(f'For a mortgage of: \033[1;36m{euro}{price:,.2f}\033[00m')
     print(
-        f'Your monthly repayment would be: {euro}{monthly_repayment_amount:,.2f}'
+        f'Your monthly repayment would be: \033[1;36m{euro}{monthly_repayment_amount:,.2f}\033[00m'
         )
-    print(f'with Loan to value (LTV) of: {loan_value}%')
-    print(f'And an interest rate of: {rate_of_interest}%')
+    print(f'with Loan to value (LTV) of: \033[1;36m{loan_value}%\033[00m')
+    print(f'And an interest rate of: \033[1;36m{rate_of_interest}%\033[00m')
     print('=============='.center(25))
 
     print_red('\nDisclaimer:')
