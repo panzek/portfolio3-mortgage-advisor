@@ -10,7 +10,7 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 
 **The goal of this application** is to calculate the mortgage and provide the first-time buyer (the user) an estimate of the monthly mortgage repayment, based on the data provided by the user: Price of the property, Loan Amount, and the number of years for the loan repayment. The mortgage calculator is a basic app, interactive, and easy to use. However, it is for illustrative purposes only. The application runs in a Command Line Interface and is deployed through Heroku.
 
-![Mortgage Advisor Mockup](doc/images/)
+![Mortgage Advisor Mockup](doc/images/mortgage-advisor-mockup.png)
 
 [View Live Project Here](https://mortgage-advisor.herokuapp.com/)
 
@@ -106,7 +106,6 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
   * The “About the application” outlines a general description of the application: what the application does and how to use it.
   * The app is for first time buyers (FTB) only and provides the user an estimate of their monthly repayment. Part of the general description is also the type of data that will be collected from the user: the amount the user will borrow, the interest rate fixed by the lending institution, and number of years for the loan. It is important that a new user knows what the Application does and how to use before proceeding further with the application. And the application is carefully configured to meet these demands. But then, the user is left with the choice not to select this first option, but to select the second which is the mortgage calculation or the third option, which is to exit the application.
 
-    ![About the application](doc/images/)
 
 * **Mortgage Calculator**:
   * Mortgage Calculator is the main feature of Mortgage Advisor application. It is a mortgage calculator for a First Time Buyer (FTB) only. It is here that the monthly repayment is calculated. And to effectively make the calculator it collects data from the user with three (3) inputs: Price of the property the user wants to buy, the amount the lending institution wants to lend to the user (buyer) and the number of years for the loan to be repaid.
@@ -131,8 +130,6 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 
 * **Delete Mortgage Calculator Results**
   * Returning users may choose to delete their previous saved mortgage calculator results. Delete Mortgage Calculator results is the second option (option 2) in the existing user menu list. On selection, delete saved mortgage calculator results, the saved results and the username are deleted. On pressing any key, the user is returned to the Welcome page as a new user.
-
-      ![Delete Mortgage Calculator Results](doc/images/)
 
 * **Exit the Application**
   * Exit the Application is the third option (option 3) in both the existing user and new user menu lists. When selected, the user is exited from the application with a good bye message.
@@ -184,10 +181,8 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 * Accessibility Testing
   * [Accessibility Insights](https://accessibilityinsights.io/) was used to check and fix accessibility issues.
   * [Chrome's Lighthouse](https://developers.google.com/web/tools/lighthouse) - used to test accessibility, and the check returned the reports below:
-
-    * Desktop
-
-        ![Lighthouse Report Desktop](doc/images/)
+  
+  ![Chrome's Lighthouse Report](doc/images/lighthouse-report.png)
 
 ## Clone
 

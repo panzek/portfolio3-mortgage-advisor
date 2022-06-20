@@ -5,7 +5,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from getch import pause
 from welcome import welcome_intro
-from print import print_red, print_green, print_yellow, print_cyan, print_purple
+from print import print_red, print_green, print_yellow, print_cyan
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -85,7 +85,9 @@ def check_username(username):
                 print('\033[1;33m2.\033[00m Delete mortgage results')
                 print('\033[1;33m3.\033[00m Exit the program')
 
-                user_option = int(input('Enter your option: \033[1;33m1,2,or 3\033[00m: \n'))
+                user_option = int(input(
+                    'Enter your option: \033[1;33m1,2,or 3\033[00m: \n'
+                    ))
                 if user_option < 1 or user_option > 3:
                     sleep(1)
                     print_red('Enter a number between 1 and 3, try again!')
@@ -131,7 +133,9 @@ def check_username(username):
 
             sleep(3)
 
-            print_green(f'Created username, "{username}" successfully!{chr(10)}')
+            print_green(
+                f'Created username, "{username}" successfully!{chr(10)}'
+                )
             validate_username(username)
             print_cyan(f'Welcome, {username}!')
 
@@ -157,10 +161,16 @@ def get_user_data(username):
             )[4]
         print_yellow('RESULTS'.center(25))
         print('=========='.center(25))
-        print(f'\033[1;33m1.\033[00m Property Value: \033[1;35m{euro}{property_value}\033[00m')
-        print(f'\033[2;33m1.\033[00m Loan Size: \033[1;35m{euro}{loan_size}\033[00m')
-        print(f'\033[3;33m1.\033[00m Loan Term: \033[1;35m{loan_term}yrs\033[00m')
-        print(f'\033[4;33m1.\033[00m Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
+        print(
+            f'1. Property Value: \033[1;35m{euro}{property_value}\033[00m'
+            )
+        print(
+            f'2. Loan Size: \033[1;35m{euro}{loan_size}\033[00m'
+            )
+        print(
+            f'2. Loan Term: \033[1;35m{loan_term}yrs\033[00m'
+            )
+        print(
+            f'4. Monthly Repayment:\033[1;35m{euro}{monthly_repayment}\033[00m'
+            )
         print('==========\n'.center(25))
-
-

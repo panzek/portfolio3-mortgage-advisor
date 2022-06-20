@@ -2,7 +2,6 @@
 
 import pyfiglet
 from getch import getch, pause
-from print import print_cyan
 from print import print_yellow
 
 
@@ -28,4 +27,3 @@ def welcome_intro():
     pause('\033[1;36mPlease press any key to continue...\033[00m')
 
     return True
-    

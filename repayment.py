@@ -17,7 +17,9 @@ def get_loan_data():
 
             loan_value = int((loan_amount/price)*100)
             if loan_value >= 90:
-                print_red('Mortgage amount cannot exceed 90% of purchase price')
+                print_red(
+                    'Mortgage amount cannot exceed 90% of purchase price'
+                    )
                 continue
 
         except ValueError:
@@ -26,21 +28,23 @@ def get_loan_data():
 
         try:
             loan_term = float(input('Please enter term loan: '))
-    
+
             if loan_term < 5 or loan_term > 35:
                 print_red('Number of years must be between 5 and 35')
                 continue
 
         except ValueError:
             print_red('Not a number, please try again!')
-            continue  
+            continue
 
         else:
-            monthly_repayment = calculate_monthly_repayment(price, loan_amount, loan_term)
-            loan =  [price, loan_amount, loan_term, monthly_repayment]
+            monthly_repayment = calculate_monthly_repayment(
+                price, loan_amount, loan_term
+                )
+            loan = [price, loan_amount, loan_term, monthly_repayment]
             return loan
 
-            
+
 def calculate_monthly_repayment(price, loan_amount, loan_term):
     """ calculate monthly repayment """
 
@@ -66,6 +70,5 @@ def calculate_monthly_repayment(price, loan_amount, loan_term):
     print('This mortgage calculator is for illustrative')
     print('purposes only and does not constitute approval')
     print('in principle or an offer of loan facilities')
-    
-    return monthly_repayment_amount
 
+    return monthly_repayment_amount

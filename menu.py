@@ -21,7 +21,9 @@ def menu_list():
             print('\033[1;33m2.\033[00m Run mortgage calculator')
             print('\033[1;33m3.\033[00m Exit the application')
 
-            list_option = int(input(f'Enter your choice: \033[1;33m1,2,or 3\033[00m:{chr(10)}'))
+            list_option = int(input(
+                f'Enter your choice: \033[1;33m1,2,or 3\033[00m:{chr(10)}'
+                ))
             # validate input
             if list_option < 1 or list_option > 5:
                 sleep(1)
@@ -84,7 +86,9 @@ def check_menu_list(list_option):
     elif list_option == 3:
         print_red('exiting the program')
         sleep(3)
-        sys.exit('\033[1;32mExited successfully, thanks for looking in!\033[00m')
+        sys.exit(
+            '\033[1;32mExited successfully, thanks for looking in!\033[00m'
+            )
 
     else:
         return True
