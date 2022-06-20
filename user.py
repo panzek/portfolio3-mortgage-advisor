@@ -1,6 +1,6 @@
 """create user name"""
 import sys
-import time
+from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 from getch import pause
@@ -86,20 +86,20 @@ def check_username(username):
 
                 user_option = int(input('Enter your option: 1,2,or 3: \n'))
                 if user_option < 1 or user_option > 3:
-                    time.sleep(1)
+                    sleep(1)
                     print_red('Enter a number between 1 and 3, try again!')
-                    time.sleep(2)
+                    sleep(2)
                     continue
 
             except ValueError:
-                time.sleep(1)
+                sleep(1)
                 print_red('Invalid Data: It needs to be a number, try again!')
-                time.sleep(2)
+                sleep(2)
                 continue
 
             if user_option == 1:
                 print_cyan('Retrieving mortgage calculator results...')
-                time.sleep(3)
+                sleep(3)
                 print_green(f'Results retrieved successfully...{chr(10)}')
                 get_user_data(username)
 
@@ -107,46 +107,33 @@ def check_username(username):
                 return check_username(username)
 
             if user_option == 2:
-                delete_program = input(
-                    '\nDo you really want to delete previous mortgage results?: y/n\n'
-                    ).lower()
-                if delete_program in ('y', 'yes'):
-                    input(f'{chr(10)}Press {delete_program} again to confirm...')
-                    print(f'{chr(10)}Deleting previous mortgage results...')
+                pause('\nPress any key to continue')
+                print_cyan('Deleting saved mortgage calculation results...')
+                sleep(3)
 
-                    time.sleep(3)
+                first_time_buyer_sheet.delete_row(existing_user.row)
+                print_red('Previous mortgage results deleted...')
+                sleep(3)
 
-                    first_time_buyer_sheet.delete_row(existing_user.row)
-                    input(f'{chr(10)}Previous mortgage results deleted...')
-
-                    return welcome_intro()
+                return welcome_intro()
 
             if user_option == 3:
-                quit_program = input(
-                    '\nDo you really want to exit progam?: y/n'
-                    ).lower()
-                if quit_program in ('y', 'yes'):
-                    input(f'Press {quit_program} again to confirm...')
-                    print_red(f'{chr(10)}Exiting the application...')
-
-                    time.sleep(3)
-
-                    sys.exit(f'{chr(10)}{username}, see you soon!')
-
-                if quit_program in ('n', 'no'):
-                    return user_option
+                pause('\nPress any key to continue')
+                print_red('Exiting the application...')
+                sleep(3)
+                sys.exit(f'{chr(10)}{username}, see you soon!')
 
         else:
             print_red(f'{username} not found...{chr(10)}')
             print_purple('Creating your username...')
 
-            time.sleep(3)
+            sleep(3)
 
             print_green(f'Created username, "{username}" successfully!{chr(10)}')
             validate_username(username)
             print_cyan(f'Welcome, {username}!')
 
-            time.sleep(3)
+            sleep(3)
 
         return existing_user
 
@@ -174,4 +161,4 @@ def get_user_data(username):
         print(f'4. Monthly Repayment: \033[1;35m{euro}{monthly_repayment}\033[00m')
         print('==========\n'.center(25))
 
-    # return existing_user
+
