@@ -83,12 +83,12 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 * Wireframes
   * The wireframe was created using [Balsamiq](https://balsamiq.com/). And it was designed for desktop only.
 
-    ![Desktop - Wireframe](doc/wireframes/)
+    ![Desktop - Wireframe](flowchart/mortgage_advisor_wireframe.png/)
 
 * Flowchart
-  * The flowchart wwas created using [Diagram.net](https://www.diagrams.net/).  
+  * The flowchart was created using [Diagram.net](https://www.diagrams.net/).  
 
-        ![Desktop - flowchart](doc/wireframes/)
+    ![Desktop - flowchart](flowchart/mortgage-advisor-flowchart.jpg/)
 
 ## Features
 
@@ -100,7 +100,7 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
     2. When the value entered by the user is outside the range between 4 and 10 characters, it raises an exception with a message: “Username must have at least 4 characters, please try again”.
     3. When the characters entered by the user are more than 10 characters or less than 4 characters, it raises an exception with a message.
 
-        ![Username](doc/images/)
+        ![Username](doc/images/username.png)
 
 * **About the application**:
   * The “About the application” outlines a general description of the application: what the application does and how to use it.
@@ -122,12 +122,12 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
          * Also returned with the result, but not stored in the spreadsheet is the Loan to Value (LTV) which was calculated by the application based on the price of property and the loan amount entered by the user. A loan to value being the amount the user (property buyer) borrowed as a percentage of the price of the property.
          * The Mortgage Calculator Results is marked with a Disclaimer that the mortgage calculator is for illustrative purposes only.
 
-      ![Mortgage Calculator](doc/images/)
+      ![Mortgage Calculator](doc/images/mortgage_calculator_results.png)
 
 * **Retrieve Mortgage Calculator Results**
   * Returning users can retrieve any previous mortgage calculator results stored in their name. It is a simple and quick process. Retrieve Mortgage Calculator results is the first option (option 1) in the existing user menu list, and on selection the results are retrieved from the database and displayed to the user to view. The returning user can then press any key to return to the existing user option section to choose the option to delete the results or the option to exit the program.
 
-      ![Retrieve Mortgage Calculator Results](doc/images/)
+      ![Retrieve Mortgage Calculator Results](doc/images/retrieve_mortgage_calculator_results.png)
 
 * **Delete Mortgage Calculator Results**
   * Returning users may choose to delete their previous saved mortgage calculator results. Delete Mortgage Calculator results is the second option (option 2) in the existing user menu list. On selection, delete saved mortgage calculator results, the saved results and the username are deleted. On pressing any key, the user is returned to the Welcome page as a new user.
@@ -137,7 +137,7 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 * **Exit the Application**
   * Exit the Application is the third option (option 3) in both the existing user and new user menu lists. When selected, the user is exited from the application with a good bye message.
 
-      ![Exit the Application](doc/images/)
+      ![Exit the Application](doc/images/returning_user_exit.png)
 
 ### Features to be implemented
 
@@ -148,9 +148,10 @@ The Central Bank of Ireland’s mortgage lending measures were introduced in Feb
 
 * There is a spreadsheet with one worksheet that contains the information of the user, who is a first-time buyer. And our worksheet has 5 columns for username, property value, loan size, loan term, and monthly repayment. All columns except the monthly repayment column will store the information collected from the user. The monthly column will store the mortgage calculator results.
 * A Google Sheet was used to store users’ data which consist of the mortgage calculator results with the user name. And to access and update the data in the spreadsheet we use Google Drive and Google Sheet APIs.
-* When improving this application in future, a SSB worksheet will be added to store mortgage calculator results of Second and Subsequent Buyers.
 
-    ![Spreadsheet](doc/images/p)
+    ![Spreadsheet](doc/images/mortgage_advisor-Google-Sheets.png)
+
+* When improving this application in future, a SSB worksheet will be added to store mortgage calculator results of Second and Subsequent Buyers.
 
 ## Technology Stack
 
